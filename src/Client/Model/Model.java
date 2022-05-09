@@ -1,8 +1,10 @@
 package Client.Model;
 
-public interface Model
+import SharedResources.Subject;
+
+public interface Model extends Subject
 {
-  void signin();
-  void login();
+  void signup(String username, String password);
+  void login(String username, String password);
   void logout();
 }

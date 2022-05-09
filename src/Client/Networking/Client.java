@@ -1,8 +1,10 @@
 package Client.Networking;
 
-public interface Client
+import SharedResources.Subject;
+
+public interface Client extends Subject
 {
-  void signup();
-  void login();
+  void signup(String username, String password);
+  void login(String username, String password);
   void logout();
 }

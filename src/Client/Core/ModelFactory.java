@@ -15,7 +15,7 @@ public class ModelFactory
 
   public Model getModel()
   {
-    if(model==null)model=new ModelImpl();
+    if(model==null)model=new ModelImpl(clientFactory.getClient());
     return model;
   }
 }

@@ -1,5 +1,18 @@
 package Client;
 
-public class App
+import Client.Core.ClientFactory;
+import Client.Core.ModelFactory;
+import Client.Core.ViewHandler;
+import Client.Core.ViewModelFactory;
+
+public class App extends Application
 {
+  public void start(Stage stage) throws Exception
+  {
+    ClientFactory clientFactory = new ClientFactory();
+    ModelFactory modelFactory = new ModelFactory(clientFactory);
+    ViewModelFactory viewModelFactory = new ViewModelFactory(modelFactory);
+    ViewHandler viewHandler = new ViewHandler();
+    //viewHandler.openLoginView();
+  }
 }

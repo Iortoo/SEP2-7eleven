@@ -7,5 +7,6 @@ public class ViewModelFactory
   public ViewModelFactory(ModelFactory modelFactory)
   {
     this.modelFactory=modelFactory;
+    // ADD ALL VIEW MODELS HERE
   }
 }
