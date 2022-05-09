@@ -7,21 +7,28 @@ public class ModelImpl implements Model
 {
   private PropertyChangeSupport support;
 
-  public boolean getLogin(String username, String password)
+  public int getLogin(String username, String password)
   {
     // if the username and password match
     // an existing on in  the database
     // return true and call the method
     // sendAcceptCredentials()
-    return false;
+
+    // 1 if credentials are valid
+    // 0 if password is incorrect
+    // 2 if username does not exist in the database
+    return 0;
   }
 
-  public boolean getSignup(String username, String password)
+  public int getSignup(String username, String password)
   {
     // if the username is not in the database
     // return true and call method
     // sendAcceptCredentials()
-    return true;
+
+    // 1 if credentials are valid
+    // 0 if the username is in the database already
+    return 0;
   }
 
   public void addListener(String event, PropertyChangeListener listener)

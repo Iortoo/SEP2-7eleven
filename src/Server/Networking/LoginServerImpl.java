@@ -30,7 +30,7 @@ public class LoginServerImpl implements LoginServer
     sendAcceptedCredentials(username,model.getLogin(username,password));
   }
 
-  private void sendAcceptedCredentials(String username, boolean accept)
+  private void sendAcceptedCredentials(String username, int validation)
   {
     // SEND THE VALUE TO THE RIGHT CLIENT
     // BASED ON USERNAME

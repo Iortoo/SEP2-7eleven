@@ -6,6 +6,6 @@ import java.io.Serializable;
 
 public interface Model extends Subject, Serializable
 {
-  boolean getLogin(String username, String password);
-  boolean getSignup(String username, String password);
+  int getLogin(String username, String password);
+  int getSignup(String username, String password);
 }
