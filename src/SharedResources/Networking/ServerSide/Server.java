@@ -9,4 +9,5 @@ public interface Server extends Remote
   LoginServer getLoginServer() throws RemoteException;
   void registerClient(ClientCallBack clientCallBack) throws RemoteException;
   void startServer() throws RemoteException, AlreadyBoundException;
+//comment
 }
