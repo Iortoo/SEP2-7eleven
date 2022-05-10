@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="546.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Transfers.TransfersViewController">
+   <children>
+      <Label layoutX="190.0" layoutY="14.0" text="Deposit funds">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Pane layoutX="31.0" layoutY="74.0" prefHeight="124.0" prefWidth="540.0" style="-fx-background-color: e2e2e2;">
+         <children>
+            <TextField layoutX="32.0" layoutY="18.0" prefHeight="40.0" prefWidth="416.0" />
+            <Label layoutX="459.0" layoutY="18.0" prefHeight="40.0" prefWidth="49.0" text="DKK">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button layoutX="232.0" layoutY="71.0" mnemonicParsing="false" style="-fx-background-color: c4c4c4;" text="Deposit">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Label layoutX="188.0" layoutY="237.0" text="Transfer funds">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <ScrollPane layoutX="30.0" layoutY="297.0" prefHeight="124.0" prefWidth="540.0" style="-fx-background-color: e2e2e2;" />
+      <Label layoutX="31.0" layoutY="442.0" prefHeight="35.0" prefWidth="63.0" text="Reg.no">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField layoutX="101.0" layoutY="442.0" prefHeight="35.0" prefWidth="103.0" />
+      <Label layoutX="215.0" layoutY="442.0" prefHeight="35.0" prefWidth="63.0" text="Acc.no">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField layoutX="285.0" layoutY="442.0" prefHeight="35.0" prefWidth="215.0" />
+      <Button layoutX="512.0" layoutY="442.0" mnemonicParsing="false" style="-fx-background-color: c4c4c4;" text="Send">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="403.0" layoutY="496.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Profile">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="210.0" layoutY="496.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Transfers">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="16.0" layoutY="496.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Overview">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
