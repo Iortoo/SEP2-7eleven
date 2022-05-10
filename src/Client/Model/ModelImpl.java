@@ -5,13 +5,12 @@ public class ModelImpl implements Model {
 
     @Override
     public String getLastUpdateBalance() {
-        return lastUpdate;
+        return lastUpdate = "ur bloke af";
     }
 
     public void calculateBalance() {
         // here we should bind data from database, calculate the total amount of funds
         //according to the transaction history, and match it with lastUpdate var
 
-        lastUpdate = "ur broke af";
     }
 }

@@ -8,7 +8,7 @@ public class OverviewViewController
 {
     @FXML Label balanceLabel;
 
-    private BalanceViewModel overviewViewController;
+    public BalanceViewModel overviewViewController;
 
     public OverviewViewController (){
     }

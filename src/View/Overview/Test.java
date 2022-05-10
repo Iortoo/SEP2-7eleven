@@ -12,6 +12,7 @@ public class Test extends Application {
     public void start(Stage stage) throws Exception {
         ModelFactory mf = new ModelFactory();
         ViewModelFactory viewModelFactory = new ViewModelFactory(mf);
+        viewModelFactory.getBalanceViewModel().updateBalance();
         ViewHandler viewHandler = new ViewHandler(stage, viewModelFactory);
         viewHandler.start();
 
