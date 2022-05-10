@@ -7,6 +7,11 @@ public class ModelImpl implements Model
 {
   private PropertyChangeSupport support;
 
+  public ModelImpl()
+  {
+    support = new PropertyChangeSupport(this);
+  }
+
   public int getLogin(String username, String password)
   {
     // if the username and password match
@@ -17,7 +22,14 @@ public class ModelImpl implements Model
     // 1 if credentials are valid
     // 0 if password is incorrect
     // 2 if username does not exist in the database
-    return 0;
+    // below I use a dummy username and password to test functionality
+
+    if(username.equals("DummyUsername"))
+    {
+      if(password.equals("dummypassword")) return 1;
+      else return 0;
+    }
+    return 2;
   }
 
   public int getSignup(String username, String password)
@@ -28,6 +40,8 @@ public class ModelImpl implements Model
 
     // 1 if credentials are valid
     // 0 if the username is in the database already
+    // bellow I use a dummy username to test functionality
+    if(username.equals("DummyUsername")) return 1;
     return 0;
   }
 

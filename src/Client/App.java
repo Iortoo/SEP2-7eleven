@@ -14,7 +14,7 @@ public class App extends Application
     ClientFactory clientFactory = new ClientFactory();
     ModelFactory modelFactory = new ModelFactory(clientFactory);
     ViewModelFactory viewModelFactory = new ViewModelFactory(modelFactory);
-    ViewHandler viewHandler = new ViewHandler();
-    //viewHandler.openLoginView();
+    ViewHandler viewHandler = new ViewHandler(stage,viewModelFactory);
+    viewHandler.openLoginView();
   }
 }

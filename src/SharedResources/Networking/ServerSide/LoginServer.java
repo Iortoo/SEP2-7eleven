@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface LoginServer extends Remote, Serializable
 {
-  void signup(String username, String password);
-  void login(String username, String password);
-  void logOut();
+  int signup(String username, String password) throws  RemoteException;
+  int login(String username, String password) throws  RemoteException;
+  void logOut() throws RemoteException;
   void setClients(List<ClientCallBack> clients)throws RemoteException;
 }

@@ -3,6 +3,7 @@ package Client.Networking;
 import SharedResources.Networking.ClientSide.ClientCallBack;
 import SharedResources.Networking.ServerSide.Server;
 
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.NotBoundException;
@@ -25,24 +26,29 @@ public class ClientImpl implements Client, ClientCallBack
       support = new PropertyChangeSupport(this);
       server.registerClient(this);
     }
-    catch (RemoteException e){}
+    catch (RemoteException e){System.out.println(e.getMessage());}
     catch(NotBoundException e){}
   }
 
   public void signup(String username, String password)
   {
+    int validation=-1;
     try{
-      server.getLoginServer().signup(username, password);
+      validation=server.getLoginServer().signup(username, password);
     }
-    catch(RemoteException e){};
+    catch(RemoteException e){}
+    support.firePropertyChange("validation",null,validation);
   }
 
   public void login(String username, String password)
   {
+    int validation=-1;
     try{
-      server.getLoginServer().login(username, password);
+      validation = server.getLoginServer().login(username, password);
     }
-    catch(RemoteException e){};
+    catch(RemoteException e){}
+    System.out.println(validation);
+    support.firePropertyChange("validation",null,validation);
   }
 
   public void logout()
@@ -61,10 +67,5 @@ public class ClientImpl implements Client, ClientCallBack
   public void removeListener(String event, PropertyChangeListener listener)
   {
     support.removePropertyChangeListener(event,listener);
-  }
-
-  public void acceptCredentials()
-  {
-    support.firePropertyChange("accepted",null,true);
   }
 }

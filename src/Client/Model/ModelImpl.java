@@ -15,7 +15,7 @@ public class ModelImpl implements Model
   {
     this.client=client;
     support = new PropertyChangeSupport(this);
-    client.addListener("accepted",this::acceptedCredentials);
+    client.addListener("validation",this::validation);
   }
 
   public void signup(String username, String password)
@@ -43,9 +43,9 @@ public class ModelImpl implements Model
     support.removePropertyChangeListener(event,listener);
   }
 
-  private void acceptedCredentials(PropertyChangeEvent e)
+  private void validation(PropertyChangeEvent e)
   {
-    support.firePropertyChange("accepted",null,true);
+    support.firePropertyChange("validation",null,e.getNewValue());
   }
 }
 

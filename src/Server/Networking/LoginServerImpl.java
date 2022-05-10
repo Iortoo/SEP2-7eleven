@@ -20,20 +20,14 @@ public class LoginServerImpl implements LoginServer
     UnicastRemoteObject.exportObject(this,0);
   }
 
-  public void signup(String username, String password)
+  public int signup(String username, String password)
   {
-    sendAcceptedCredentials(username,model.getSignup(username, password));
+    return model.getSignup(username, password);
   }
 
-  public void login(String username, String password)
+  public int login(String username, String password)
   {
-    sendAcceptedCredentials(username,model.getLogin(username,password));
-  }
-
-  private void sendAcceptedCredentials(String username, int validation)
-  {
-    // SEND THE VALUE TO THE RIGHT CLIENT
-    // BASED ON USERNAME
+    return model.getLogin(username,password);
   }
 
   public void logOut()
