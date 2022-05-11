@@ -12,7 +12,7 @@
          <font>
             <Font size="16.0" />
          </font></Button>
-      <Button fx:id="getALoanButton" layoutX="303.0" layoutY="14.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="283.0" style="-fx-background-color: c4c4c4;" text="Get a loan">
+      <Button fx:id="getALoanButton" layoutX="303.0" layoutY="14.0" mnemonicParsing="false" onAction="#onGetALoanButton" prefHeight="34.0" prefWidth="283.0" style="-fx-background-color: c4c4c4;" text="Get a loan">
          <font>
             <Font size="16.0" />
          </font></Button>

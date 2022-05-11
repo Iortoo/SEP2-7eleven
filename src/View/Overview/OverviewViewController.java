@@ -15,6 +15,8 @@ public class OverviewViewController {
     Label balanceLabel;
     @FXML
     Button accountsButton;
+    @FXML
+    Button getALoanButton;
 
     public OverviewViewModel overviewViewModel;
     private ViewHandler viewHandler;
@@ -26,10 +28,16 @@ public class OverviewViewController {
         viewHandler.openAccountsListView();
     }
 
-    public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory){
+    public void onGetALoanButton(ActionEvent actionEvent) throws IOException {
+        viewHandler.openGetLoanView();
+    }
+
+    public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory) {
         this.viewHandler = viewHandler;
         this.overviewViewModel = viewModelFactory.getBalanceViewModel();
 
         balanceLabel.textProperty().bind(overviewViewModel.updateBalanceProperty());
     }
+
+
 }
