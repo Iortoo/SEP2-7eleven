@@ -53,7 +53,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="403.0" layoutY="496.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Profile">
+      <Button layoutX="403.0" layoutY="496.0" mnemonicParsing="false" onAction="#onProfileButton" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Profile">
          <font>
             <Font size="16.0" />
          </font>
@@ -63,7 +63,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="16.0" layoutY="496.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Overview">
+      <Button layoutX="16.0" layoutY="496.0" mnemonicParsing="false" onAction="#onOverviewButton" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Overview">
          <font>
             <Font size="16.0" />
          </font>
