@@ -5,7 +5,7 @@ public class ModelImpl implements Model {
 
     @Override
     public String getLastUpdateBalance() {
-        return lastUpdate = "ur bloke af";
+        return lastUpdate = "ur broke af";
     }
 
     public void calculateBalance() {
