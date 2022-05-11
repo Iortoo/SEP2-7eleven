@@ -1,5 +1,6 @@
 package Client.Core;
 
+import View.AccountsList.AccountsListViewController;
 import View.Overview.OverviewViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,14 +19,24 @@ public class ViewHandler {
     }
 
     public void start() throws Exception {
-        openView();
+        openOverviewView();
     }
 
-    public void openView() throws IOException {
+    public void openOverviewView() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../View/Overview/OverviewView.fxml"));
         Parent root = fxmlLoader.load();
         OverviewViewController view = fxmlLoader.getController();
-        view.init(viewModelFactory.getBalanceViewModel());
+        view.init(this, viewModelFactory);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void openAccountsListView() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../View/AccountsList/AccountsListView.fxml"));
+        Parent root = fxmlLoader.load();
+        AccountsListViewController view = fxmlLoader.getController();
+        view.init(this, viewModelFactory);
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

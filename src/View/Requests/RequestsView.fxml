@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="604.0" prefWidth="916.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Requests.RequestsViewController">
    <children>
       <Button layoutX="737.0" layoutY="514.0" mnemonicParsing="false" style="-fx-background-color: c4c4c4;" text="Accept">

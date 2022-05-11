@@ -8,11 +8,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Overview.OverviewViewController">
    <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="283.0" style="-fx-background-color: c4c4c4;" text="Accounts">
+      <Button fx:id="accountsButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onAccountsListButton" prefHeight="34.0" prefWidth="283.0" style="-fx-background-color: c4c4c4;" text="Accounts">
          <font>
             <Font size="16.0" />
          </font></Button>
-      <Button layoutX="303.0" layoutY="14.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="283.0" style="-fx-background-color: c4c4c4;" text="Get a loan">
+      <Button fx:id="getALoanButton" layoutX="303.0" layoutY="14.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="283.0" style="-fx-background-color: c4c4c4;" text="Get a loan">
          <font>
             <Font size="16.0" />
          </font></Button>
@@ -27,11 +27,11 @@
             <Label prefHeight="17.0" prefWidth="138.0" text="Transaction history:" />
          </content>
       </ScrollPane>
-      <Button layoutX="401.0" layoutY="352.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Profile">
+      <Button fx:id="profileButton" layoutX="401.0" layoutY="352.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Profile">
          <font>
             <Font size="16.0" />
          </font></Button>
-      <Button layoutX="208.0" layoutY="352.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Transfers">
+      <Button fx:id="transfersButton" layoutX="208.0" layoutY="352.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Transfers">
          <font>
             <Font size="16.0" />
          </font></Button>

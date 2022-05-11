@@ -1,21 +1,35 @@
 package View.Overview;
 
-import ViewModel.BalanceViewModel;
+import Client.Core.ViewHandler;
+import Client.Core.ViewModelFactory;
+import ViewModel.OverviewViewModel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class OverviewViewController
-{
-    @FXML Label balanceLabel;
+import java.io.IOException;
 
-    public BalanceViewModel overviewViewController;
+public class OverviewViewController {
+    @FXML
+    Label balanceLabel;
+    @FXML
+    Button accountsButton;
 
-    public OverviewViewController (){
+    public OverviewViewModel overviewViewModel;
+    private ViewHandler viewHandler;
+
+    public OverviewViewController() {
     }
 
-    public void init(BalanceViewModel overviewViewController){
-        this.overviewViewController = overviewViewController;
+    public void onAccountsListButton(ActionEvent actionEvent) throws IOException {
+        viewHandler.openAccountsListView();
+    }
 
-        balanceLabel.textProperty().bind(overviewViewController.updateBalanceProperty());
+    public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory){
+        this.viewHandler = viewHandler;
+        this.overviewViewModel = viewModelFactory.getBalanceViewModel();
+
+        balanceLabel.textProperty().bind(overviewViewModel.updateBalanceProperty());
     }
 }

@@ -1,5 +1,3 @@
-package View.Overview;
-
 import Client.Core.ModelFactory;
 import Client.Core.ViewHandler;
 import Client.Core.ViewModelFactory;

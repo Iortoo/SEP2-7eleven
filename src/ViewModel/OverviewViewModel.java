@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import Client.Model.*;
 
-public class BalanceViewModel {
+public class OverviewViewModel {
 
     private StringProperty updateBalance;
     private Model model;
@@ -13,7 +13,7 @@ public class BalanceViewModel {
         return updateBalance;
     }
 
-    public BalanceViewModel(Model model) {
+    public OverviewViewModel(Model model) {
         this.model = model;
         updateBalance = new SimpleStringProperty("Balance: ");
     }
