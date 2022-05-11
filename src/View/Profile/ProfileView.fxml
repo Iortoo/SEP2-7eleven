@@ -25,17 +25,17 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="137.0" layoutY="143.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="328.0" style="-fx-background-color: c4c4c4;" text="Create new account">
+      <Button layoutX="137.0" layoutY="143.0" mnemonicParsing="false" onAction="#onCreateNewAccButton" prefHeight="46.0" prefWidth="328.0" style="-fx-background-color: c4c4c4;" text="Create new account">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="137.0" layoutY="203.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="328.0" style="-fx-background-color: c4c4c4;" text="Edit account info">
+      <Button layoutX="137.0" layoutY="203.0" mnemonicParsing="false" onAction="#onEditAccInfoButton" prefHeight="46.0" prefWidth="328.0" style="-fx-background-color: c4c4c4;" text="Edit account info">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="160.0" layoutY="262.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="280.0" style="-fx-background-color: c4c4c4;" text="Logout">
+      <Button layoutX="160.0" layoutY="262.0" mnemonicParsing="false" onAction="#onLogoutButton" prefHeight="35.0" prefWidth="280.0" style="-fx-background-color: c4c4c4;" text="Logout">
          <font>
             <Font size="20.0" />
          </font>

@@ -19,6 +19,18 @@ public class ProfileViewController {
         viewHandler.openTransfersView();
     }
 
+    public void onCreateNewAccButton(ActionEvent actionEvent) throws IOException {
+        viewHandler.openCreateNewAccView();
+    }
+
+    public void onEditAccInfoButton(ActionEvent actionEvent) throws IOException {
+        viewHandler.openEditAccView();
+    }
+
+    public void onLogoutButton(ActionEvent actionEvent) throws IOException {
+        viewHandler.openLogoutView();
+    }
+
     public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory) {
         this.viewHandler = viewHandler;
         this.profileViewModel = viewModelFactory.getProfileViewModel();

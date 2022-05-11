@@ -16,17 +16,17 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="401.0" layoutY="462.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Profile">
+      <Button layoutX="401.0" layoutY="462.0" mnemonicParsing="false" onAction="#onProfileButton" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Profile">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="208.0" layoutY="462.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Transfers">
+      <Button layoutX="208.0" layoutY="462.0" mnemonicParsing="false" onAction="#onTransfersButton" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Transfers">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="14.0" layoutY="462.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Overview">
+      <Button layoutX="14.0" layoutY="462.0" mnemonicParsing="false" onAction="#onOverviewButton" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Overview">
          <font>
             <Font size="16.0" />
          </font>

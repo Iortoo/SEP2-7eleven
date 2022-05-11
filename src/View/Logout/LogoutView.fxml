@@ -22,7 +22,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="19.0" layoutY="175.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="277.0" style="-fx-background-color: c4c4c4;" text="Cancel">
+      <Button layoutX="19.0" layoutY="175.0" mnemonicParsing="false" onAction="#onCancelButton" prefHeight="35.0" prefWidth="277.0" style="-fx-background-color: c4c4c4;" text="Cancel">
          <font>
             <Font size="16.0" />
          </font>

@@ -1,7 +1,10 @@
 package Client.Core;
 
 import View.AccountsList.AccountsListViewController;
+import View.CreateNewAcc.CreateNewAccViewController;
+import View.EditAcc.EditAccViewController;
 import View.GetLoan.GetLoanViewController;
+import View.Logout.LogoutViewController;
 import View.Overview.OverviewViewController;
 import View.Profile.ProfileViewController;
 import View.Transfers.TransfersViewController;
@@ -69,6 +72,36 @@ public class ViewHandler {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../View/Profile/ProfileView.fxml"));
         Parent root = fxmlLoader.load();
         ProfileViewController view = fxmlLoader.getController();
+        view.init(this, viewModelFactory);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void openCreateNewAccView() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../View/CreateNewAcc/CreateNewAccView.fxml"));
+        Parent root = fxmlLoader.load();
+        CreateNewAccViewController view = fxmlLoader.getController();
+        view.init(this, viewModelFactory);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void openEditAccView() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../View/EditAcc/EditAccView.fxml"));
+        Parent root = fxmlLoader.load();
+        EditAccViewController view = fxmlLoader.getController();
+        view.init(this, viewModelFactory);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void openLogoutView() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../View/Logout/LogoutView.fxml"));
+        Parent root = fxmlLoader.load();
+        LogoutViewController view = fxmlLoader.getController();
         view.init(this, viewModelFactory);
         Scene scene = new Scene(root);
         stage.setScene(scene);
