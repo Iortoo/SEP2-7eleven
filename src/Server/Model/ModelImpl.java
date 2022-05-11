@@ -21,15 +21,23 @@ public class ModelImpl implements Model
 
     // 1 if credentials are valid
     // 0 if password is incorrect
+    // -1 if username is incorrect
     // 2 if username does not exist in the database
+    // 3 if username or password is null
     // below I use a dummy username and password to test functionality
+    if (username == null && password == null)
+      return 3;
 
-    if(username.equals("DummyUsername"))
-    {
-      if(password.equals("dummypassword")) return 1;
-      else return 0;
-    }
-    return 2;
+      if (username.equals("DummyUsername") == false)
+      {
+        return -1;
+      }
+      if (password.equals("dummypassword") == false)
+        return 0;
+
+    //Checking if it exist in the database should be here
+
+    return 1;
   }
 
   public int getSignup(String username, String password)
@@ -40,7 +48,7 @@ public class ModelImpl implements Model
 
     // 1 if credentials are valid
     // 0 if the username is in the database already
-    // bellow I use a dummy username to test functionality
+    // below I use a dummy username to test functionality
     if(username.equals("DummyUsername")) return 1;
     return 0;
   }

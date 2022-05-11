@@ -33,6 +33,11 @@ public class ModelImpl implements Model
     client.logout();
   }
 
+  @Override public void validation(String username, String password)
+  {
+    //to be implemented
+  }
+
   public void addListener(String event, PropertyChangeListener listener)
   {
     support.addPropertyChangeListener(event,listener);
