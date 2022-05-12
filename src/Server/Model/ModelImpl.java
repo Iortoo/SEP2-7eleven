@@ -1,18 +1,24 @@
 package Server.Model;
 
+import Server.Database.LoginAdapter;
+import Server.Database.LoginAdapterImpl;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.sql.SQLException;
 
 public class ModelImpl implements Model
 {
   private PropertyChangeSupport support;
+  private LoginAdapter loginAdapter;
 
   public ModelImpl()
   {
+    loginAdapter = new LoginAdapterImpl();
     support = new PropertyChangeSupport(this);
   }
 
-  public int getLogin(String username, String password)
+  public int getLogin(String username, String password) throws SQLException
   {
     // if the username and password match
     // an existing on in  the database
@@ -25,6 +31,9 @@ public class ModelImpl implements Model
     // 2 if username does not exist in the database
     // 3 if username or password is null
     // below I use a dummy username and password to test functionality
+
+    loginAdapter.login(username, password);
+
     if (username == null && password == null)
       return 3;
 

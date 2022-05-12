@@ -11,7 +11,8 @@ import java.rmi.RemoteException;
 
 public class RunServer
 {
-  public static void main(String[] args) throws RemoteException, AlreadyBoundException
+  public static void main(String[] args)
+      throws RemoteException, AlreadyBoundException, ClassNotFoundException
   {
     LoginServer loginServer = new LoginServerImpl(new ModelImpl());
     Server server = new ServerImpl(loginServer);

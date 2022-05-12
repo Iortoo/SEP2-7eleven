@@ -11,6 +11,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.SQLException;
 
 public class ClientImpl implements Client, ClientCallBack
 {
@@ -46,8 +47,8 @@ public class ClientImpl implements Client, ClientCallBack
     try{
       validation = server.getLoginServer().login(username, password);
     }
-    catch(RemoteException e){}
-    System.out.println(validation);
+    catch(RemoteException | SQLException e){}
+    System.out.println(validation + "it stops here");
     support.firePropertyChange("validation",null,validation);
   }
 

@@ -7,6 +7,7 @@ import SharedResources.Networking.ServerSide.LoginServer;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.SQLException;
 import java.util.List;
 
 public class LoginServerImpl implements LoginServer
@@ -25,7 +26,7 @@ public class LoginServerImpl implements LoginServer
     return model.getSignup(username, password);
   }
 
-  public int login(String username, String password)
+  public int login(String username, String password) throws SQLException
   {
     return model.getLogin(username,password);
   }
