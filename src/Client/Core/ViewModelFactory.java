@@ -13,6 +13,7 @@ public class ViewModelFactory {
     private ProfileViewModel profileViewModel;
     private RegisterViewModel registerViewModel;
     private TransfersViewModel transfersViewModel;
+    private DeleteAccViewModel deleteAccViewModel;
 
     public ViewModelFactory(ModelFactory modelFactory) {
         overviewViewModel = new OverviewViewModel(modelFactory.getModel());
@@ -25,6 +26,7 @@ public class ViewModelFactory {
         profileViewModel = new ProfileViewModel(modelFactory.getModel());
         registerViewModel = new RegisterViewModel(modelFactory.getModel());
         transfersViewModel = new TransfersViewModel(modelFactory.getModel());
+        deleteAccViewModel = new DeleteAccViewModel(modelFactory.getModel());
 
     }
 
@@ -66,5 +68,9 @@ public class ViewModelFactory {
 
     public TransfersViewModel getTransfersViewModel() {
         return transfersViewModel;
+    }
+
+    public DeleteAccViewModel getDeleteAccViewModel() {
+        return deleteAccViewModel;
     }
 }

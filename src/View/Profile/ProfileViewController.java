@@ -31,6 +31,10 @@ public class ProfileViewController {
         viewHandler.openLogoutView();
     }
 
+    public void onDeleteAccountButton(ActionEvent actionEvent) throws IOException {
+        viewHandler.openDeleteAccView();
+    }
+
     public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory) {
         this.viewHandler = viewHandler;
         this.profileViewModel = viewModelFactory.getProfileViewModel();

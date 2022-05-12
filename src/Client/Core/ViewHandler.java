@@ -2,6 +2,7 @@ package Client.Core;
 
 import View.AccountsList.AccountsListViewController;
 import View.CreateNewAcc.CreateNewAccViewController;
+import View.DeleteAcc.DeleteAccViewController;
 import View.EditAcc.EditAccViewController;
 import View.GetLoan.GetLoanViewController;
 import View.Logout.LogoutViewController;
@@ -102,6 +103,16 @@ public class ViewHandler {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../View/Logout/LogoutView.fxml"));
         Parent root = fxmlLoader.load();
         LogoutViewController view = fxmlLoader.getController();
+        view.init(this, viewModelFactory);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void openDeleteAccView() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../View/DeleteAcc/DeleteAccView.fxml"));
+        Parent root = fxmlLoader.load();
+        DeleteAccViewController view = fxmlLoader.getController();
         view.init(this, viewModelFactory);
         Scene scene = new Scene(root);
         stage.setScene(scene);

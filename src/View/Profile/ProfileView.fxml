@@ -5,22 +5,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="388.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Profile.ProfileViewController">
+<AnchorPane prefHeight="445.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Profile.ProfileViewController">
    <children>
       <Label fx:id="fullName" layoutX="146.0" layoutY="14.0" prefHeight="39.0" prefWidth="309.0" />
       <Label fx:id="acc" layoutX="131.0" layoutY="60.0" prefHeight="28.0" prefWidth="338.0" />
       <Label fx:id="accNo" layoutX="209.0" layoutY="94.0" prefHeight="22.0" prefWidth="183.0" />
-      <Button layoutX="401.0" layoutY="337.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Profile">
+      <Button layoutX="402.0" layoutY="396.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Profile">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="208.0" layoutY="337.0" mnemonicParsing="false" onAction="#onTransfersButton" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Transfers">
+      <Button layoutX="209.0" layoutY="396.0" mnemonicParsing="false" onAction="#onTransfersButton" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Transfers">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="14.0" layoutY="337.0" mnemonicParsing="false" onAction="#onOverviewButton" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Overview">
+      <Button layoutX="15.0" layoutY="396.0" mnemonicParsing="false" onAction="#onOverviewButton" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: c4c4c4;" text="Overview">
          <font>
             <Font size="16.0" />
          </font>
@@ -35,7 +35,12 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="160.0" layoutY="262.0" mnemonicParsing="false" onAction="#onLogoutButton" prefHeight="35.0" prefWidth="280.0" style="-fx-background-color: c4c4c4;" text="Logout">
+      <Button layoutX="162.0" layoutY="317.0" mnemonicParsing="false" onAction="#onLogoutButton" prefHeight="35.0" prefWidth="280.0" style="-fx-background-color: c4c4c4;" text="Logout">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="162.0" layoutY="263.0" mnemonicParsing="false" onAction="#onDeleteAccountButton" prefHeight="35.0" prefWidth="280.0" style="-fx-background-color: c4c4c4;" text="Delete account">
          <font>
             <Font size="20.0" />
          </font>
