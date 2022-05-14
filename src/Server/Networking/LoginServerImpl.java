@@ -11,13 +11,20 @@ import java.util.List;
 
 public class LoginServerImpl implements LoginServer
 {
+  private static LoginServerImpl instance;
   private Model model;
   private List<ClientCallBack> clients;
 
-  public LoginServerImpl(Model model) throws RemoteException
+  private LoginServerImpl() throws RemoteException
   {
-    this.model=model;
+    this.model=ModelImpl.getInstance();
     UnicastRemoteObject.exportObject(this,0);
+  }
+
+  public static LoginServerImpl getInstance() throws RemoteException
+  {
+    if(instance==null)instance=new LoginServerImpl();
+    return instance;
   }
 
   public int signup(String username, String password)
@@ -25,8 +32,11 @@ public class LoginServerImpl implements LoginServer
     return model.getSignup(username, password);
   }
 
-  public int login(String username, String password)
+  public int login(String username, String password) throws RemoteException
   {
+    int result = model.getLogin(username,password);
+    if(result==4) ServerImpl.getInstance().sendToEmployeeServer(clients);
+    if(result==1) ServerImpl.getInstance().sendToCustomerServer(clients);
     return model.getLogin(username,password);
   }
 

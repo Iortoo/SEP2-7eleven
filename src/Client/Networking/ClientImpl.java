@@ -59,6 +59,42 @@ public class ClientImpl implements Client, ClientCallBack
     catch (RemoteException e){};
   }
 
+  public void deposit(String amount,String cardNo,String cvv,String expDate)
+  {
+    try{
+      server.getCustomerServer().deposit(amount,cardNo,cvv,expDate);
+      support.firePropertyChange("newBalance",null,"newBalance");
+    }
+    catch(RemoteException e){}
+
+  }
+
+  public void withdraw(String amount,String cardNo,String cvv,String expDate)
+  {
+    try{
+      server.getCustomerServer().withdraw(amount,cardNo,cvv,expDate);
+      support.firePropertyChange("newBalance",null,"newBalance");
+    }catch(RemoteException e){};
+  }
+
+  public String getBalance()
+  {
+    String rtrn="1";
+    try{
+      rtrn=server.getCustomerServer().getBalance();
+    }catch(RemoteException e){}
+    return rtrn;
+  }
+
+  public String getAccountNo()
+  {
+    String rtrn="123";
+    try{
+      rtrn=server.getCustomerServer().getAccountNo();
+    }catch(RemoteException e){}
+    return rtrn;
+  }
+
   public void addListener(String event, PropertyChangeListener listener)
   {
     support.addPropertyChangeListener(event,listener);

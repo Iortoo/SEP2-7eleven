@@ -16,7 +16,6 @@ import java.io.IOException;
 public class LoginViewModel
 {
   private Model model;
-  private ViewHandler viewHandler;
 
   private StringProperty userId;
   private StringProperty password;

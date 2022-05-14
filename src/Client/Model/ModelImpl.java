@@ -16,6 +16,7 @@ public class ModelImpl implements Model
     this.client=client;
     support = new PropertyChangeSupport(this);
     client.addListener("validation",this::validation);
+    client.addListener("newBalance",this::newBalance);
   }
 
   public void signup(String username, String password)
@@ -33,9 +34,31 @@ public class ModelImpl implements Model
     client.logout();
   }
 
-  @Override public void validation(String username, String password)
+  private void validation(PropertyChangeEvent e)
   {
-    //to be implemented
+    support.firePropertyChange("validation",null,e.getNewValue());
+  }
+
+  public void deposit(String amount,String cardNo,String cvv,String expDate)
+  {
+    client.deposit(amount,cardNo,cvv,expDate);
+  }
+
+  public String getBalance()
+  {
+    return client.getBalance();
+  }
+
+  public String getAccountNo(){return client.getAccountNo();}
+
+  public void withdraw(String amount,String cardNo,String cvv,String expDate)
+  {
+    client.withdraw(amount,cardNo,cvv,expDate);
+  }
+
+  private void newBalance(PropertyChangeEvent e)
+  {
+    support.firePropertyChange("newBalance",null,"newBalance");
   }
 
   public void addListener(String event, PropertyChangeListener listener)
@@ -46,11 +69,6 @@ public class ModelImpl implements Model
   public void removeListener(String event, PropertyChangeListener listener)
   {
     support.removePropertyChangeListener(event,listener);
-  }
-
-  private void validation(PropertyChangeEvent e)
-  {
-    support.firePropertyChange("validation",null,e.getNewValue());
   }
 }
 

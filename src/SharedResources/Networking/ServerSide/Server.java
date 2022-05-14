@@ -8,6 +8,8 @@ import SharedResources.Networking.ClientSide.ClientCallBack;
 public interface Server extends Remote
 {
   LoginServer getLoginServer() throws RemoteException;
+  CustomerServer getCustomerServer() throws RemoteException;
+  EmployeeServer getEmployeeServer() throws RemoteException;
   void registerClient(ClientCallBack clientCallBack) throws RemoteException;
   void startServer() throws RemoteException, AlreadyBoundException;
 }

@@ -13,8 +13,7 @@ public class RunServer
 {
   public static void main(String[] args) throws RemoteException, AlreadyBoundException
   {
-    LoginServer loginServer = new LoginServerImpl(new ModelImpl());
-    Server server = new ServerImpl(loginServer);
+    Server server = ServerImpl.getInstance();
     server.startServer();
   }
 }

@@ -1,6 +1,8 @@
 package Server.Networking;
 
 import SharedResources.Networking.ClientSide.ClientCallBack;
+import SharedResources.Networking.ServerSide.CustomerServer;
+import SharedResources.Networking.ServerSide.EmployeeServer;
 import SharedResources.Networking.ServerSide.LoginServer;
 import SharedResources.Networking.ServerSide.Server;
 
@@ -14,19 +16,41 @@ import java.util.List;
 
 public class ServerImpl implements Server
 {
+  private static ServerImpl instance;
+
   private LoginServer loginServer;
+  private CustomerServer customerServer;
+  private EmployeeServer employeeServer;
   private List<ClientCallBack> clients;
 
-  public ServerImpl(LoginServer loginServer) throws RemoteException
+  private ServerImpl() throws RemoteException
   {
-    this.loginServer=loginServer;
+    this.loginServer=LoginServerImpl.getInstance();
+    this.customerServer=CustomerServerImpl.getInstance();
+    this.employeeServer=EmployeeServerImpl.getInstance();
     UnicastRemoteObject.exportObject(this,0);
     clients = new ArrayList<>();
+  }
+
+  public static ServerImpl getInstance() throws RemoteException
+  {
+    if(instance==null)instance=new ServerImpl();
+    return instance;
   }
 
   public LoginServer getLoginServer() throws RemoteException
   {
     return loginServer;
+  }
+
+  public CustomerServer getCustomerServer()
+  {
+    return customerServer;
+  }
+
+  public EmployeeServer getEmployeeServer()
+  {
+    return employeeServer;
   }
 
   public void registerClient(ClientCallBack clientCallBack)
@@ -48,4 +72,15 @@ public class ServerImpl implements Server
   {
     loginServer.setClients(clients);
   }
+
+  public void sendToCustomerServer(List<ClientCallBack> clients) throws RemoteException
+  {
+    customerServer.setClients(clients);
+  }
+
+  public void sendToEmployeeServer(List<ClientCallBack> clients) throws RemoteException
+  {
+    employeeServer.setClients(clients);
+  }
+
 }

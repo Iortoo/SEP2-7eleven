@@ -61,4 +61,27 @@ public class DatabaseAdapterImpl implements  DatabaseAdapter
     if(username.equals("DummyUsername"))return 1;
     return 0;
   }
+  public void deposit(String amount,String cardNo,String cvv,String expDate)
+  {
+    // add to the deposit table
+    // modify the account balance accordingly
+  }
+
+  public void withdraw(String amount,String cardNo,String cvv,String expDate)
+  {
+    //add to the withdraw table
+    //modify the account balance accordingly
+  }
+
+  public String getBalance()
+  {
+    // return the account balance
+    return "0";
+  }
+
+  public String getAccountNo()
+  {
+    //return account number
+    return "1111";
+  }
 }

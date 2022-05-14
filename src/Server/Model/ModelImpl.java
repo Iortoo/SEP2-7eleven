@@ -5,11 +5,18 @@ import java.beans.PropertyChangeSupport;
 
 public class ModelImpl implements Model
 {
+  private static Model instance;
   private PropertyChangeSupport support;
 
-  public ModelImpl()
+  private ModelImpl()
   {
     support = new PropertyChangeSupport(this);
+  }
+
+  public static Model getInstance()
+  {
+    if(instance == null) instance = new ModelImpl();
+    return instance;
   }
 
   public int getLogin(String username, String password)
@@ -35,6 +42,26 @@ public class ModelImpl implements Model
 
     int result = DatabaseAdapterImpl.getInstance().signupQuery(username);
     return result;
+  }
+
+  public void deposit(String amount,String cardNo,String cvv,String expDate)
+  {
+    DatabaseAdapterImpl.getInstance().deposit(amount,cardNo,cvv,expDate);
+  }
+
+  public void withdraw(String amount,String cardNo,String cvv,String expDate)
+  {
+    DatabaseAdapterImpl.getInstance().withdraw(amount,cardNo,cvv,expDate);
+  }
+
+  public String getBalance()
+  {
+    return DatabaseAdapterImpl.getInstance().getBalance();
+  }
+
+  public String getAccountNo()
+  {
+    return DatabaseAdapterImpl.getInstance().getAccountNo();
   }
 
   public void addListener(String event, PropertyChangeListener listener)
