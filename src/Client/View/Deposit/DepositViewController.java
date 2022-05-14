@@ -23,26 +23,35 @@ public class DepositViewController implements ViewController
   @FXML Button profileButton;
   private ViewHandler viewHandler;
   private DepositViewModel viewModel;
+  private String username;
+  private String accountNo;
 
-  public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory)
+  public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory,String username)
   {
+    this.username=username;
     this.viewHandler = viewHandler;
     viewModel = viewModelFactory.getDepositViewModel();
   }
 
+  public void initPlus(ViewHandler viewHandler, ViewModelFactory viewModelFactory,String username,String accountNo)
+  {
+    init(viewHandler,viewModelFactory,username);
+    this.accountNo=accountNo;
+  }
+
   public void onProfileButton() throws IOException
   {
-    //viewHandler.openProfileView();
+    viewHandler.openProfileView(username);
   }
 
   public void onTransfersButton() throws IOException
   {
-    //viewHandler.openTransfersView();
+    //viewHandler.openTransfersView(username,accountNo);
   }
 
   public void onOverviewButton() throws IOException
   {
-    viewHandler.openOverviewView();
+    viewHandler.openOverviewView(username,accountNo);
   }
 
   public void onDepositButton() throws IOException
@@ -53,6 +62,6 @@ public class DepositViewController implements ViewController
     String expDate = expMonthTextField + "/" + expYearTextField.getText();
 
     viewModel.deposit(amount,cardNo,cvv,expDate);
-    viewHandler.openOverviewView();
+    viewHandler.openOverviewView(username,accountNo);
   }
 }

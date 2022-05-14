@@ -1,4 +1,4 @@
-package Client.View.Profile;
+package Client.View.Overview;
 
 import Client.Core.ViewHandler;
 import Client.Core.ViewModelFactory;
@@ -15,58 +15,61 @@ public class OverviewViewController implements ViewController
 {
   private ViewHandler viewHandler;
   private OverviewViewModel viewModel;
+  private String username;
+  private String accountNo;
   @FXML Button accountsButton;
   @FXML Button loanButton;
   @FXML Button profileButton;
   @FXML Button transfersButton;
-  @FXML Button overviewButton;
   @FXML Button depositButton;
   @FXML Button withdrawButton;
   @FXML TextField balanceTextField;
   @FXML Label accountNoLabel;
 
-  public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory)
+  public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory,String username)
   {
+    this.username = username;
     this.viewHandler = viewHandler;
     viewModel = viewModelFactory.getOverviewViewModel();
     update();
     viewModel.getModel().addListener("newBalance",this::newBalance);
-    accountNoLabel.setText(accountNoLabel.getText()+" "+viewModel.getAccountNo());
+  }
+
+  public void initPlus(ViewHandler viewHandler,ViewModelFactory viewModelFactory,String username,String accountNo)
+  {
+    init(viewHandler,viewModelFactory,username);
+    this.accountNo=accountNo;
+    accountNoLabel.setText(accountNoLabel.getText()+" "+accountNo);
   }
 
   public void onAccountsButton() throws IOException
   {
-    // open view to accounts
+    //viewHandler.openAccountListView(username);
   }
 
   public void onLoanButton() throws IOException
   {
-    //open view to loan
+    //viewHandler.openLoanView(username,accountNo);
   }
 
   public void onProfileButton() throws IOException
   {
-    //open view to profile
+    viewHandler.openProfileView(username);
   }
 
   public void onTransfersButton() throws IOException
   {
-    //open view to transfers
-  }
-
-  public void onOverviewButton() throws IOException
-  {
-    //open view to overview
+    //viewHandler.openTransfersView(username,accountNo);
   }
 
   public void onDepositButton() throws IOException
   {
-    viewHandler.openDepositView();
+    viewHandler.openDepositView(username,accountNo);
   }
 
   public void onWithdrawButton() throws IOException
   {
-    viewHandler.openWithdrawalView();
+    viewHandler.openWithdrawalView(username,accountNo);
   }
 
   public void newBalance(PropertyChangeEvent e)

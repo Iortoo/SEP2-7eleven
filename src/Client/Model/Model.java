@@ -12,5 +12,9 @@ public interface Model extends Subject
   void deposit(String amount,String cardNo,String cvv,String expDate);
   String getBalance();
   String getAccountNo();
+  String getFullName(String username);
   void withdraw(String amount,String cardNo,String cvv,String expDate);
+  void requestInfoChange(String fmName,String lName,String username,String adress,String dobD,String dobM,String dobY,String phone);
+  String[] getInfo(String username);
+
 }

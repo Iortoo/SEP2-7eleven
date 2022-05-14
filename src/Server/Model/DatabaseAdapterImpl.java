@@ -84,4 +84,22 @@ public class DatabaseAdapterImpl implements  DatabaseAdapter
     //return account number
     return "1111";
   }
+
+  public String getFullName(String username)
+  {
+    // return full name based on username
+    return "John Johnson";
+  }
+
+  public void requestInfoChange(String fmName,String lName,String username,String adress,String dobD,String dobM,String dobY,String phone)
+  {
+    // add a request to the request table to change credentials
+  }
+
+  public String[] getInfo(String username)
+  {
+    // return an arraylist like this:
+    String[] rtrn ={"John","Johnson","123456","StreetFullOfBugs","01","02","1993","11223344"};
+    return rtrn;
+  }
 }

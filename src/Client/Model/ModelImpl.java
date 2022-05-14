@@ -51,6 +51,11 @@ public class ModelImpl implements Model
 
   public String getAccountNo(){return client.getAccountNo();}
 
+  public String getFullName(String username)
+  {
+    return client.getFullName(username);
+  }
+
   public void withdraw(String amount,String cardNo,String cvv,String expDate)
   {
     client.withdraw(amount,cardNo,cvv,expDate);
@@ -59,6 +64,16 @@ public class ModelImpl implements Model
   private void newBalance(PropertyChangeEvent e)
   {
     support.firePropertyChange("newBalance",null,"newBalance");
+  }
+
+  public void requestInfoChange(String fmName,String lName,String username,String adress,String dobD,String dobM,String dobY,String phone)
+  {
+    client.requestInfoChange(fmName,lName,username,adress,dobD,dobM,dobY,phone);
+  }
+
+  public String[] getInfo(String username)
+  {
+    return client.getInfo(username);
   }
 
   public void addListener(String event, PropertyChangeListener listener)

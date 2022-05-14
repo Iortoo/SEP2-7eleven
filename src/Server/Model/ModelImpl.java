@@ -54,6 +54,11 @@ public class ModelImpl implements Model
     DatabaseAdapterImpl.getInstance().withdraw(amount,cardNo,cvv,expDate);
   }
 
+  public void requestInfoChange(String fmName,String lName,String username,String adress,String dobD,String dobM,String dobY,String phone)
+  {
+    DatabaseAdapterImpl.getInstance().requestInfoChange(fmName,lName,username,adress,dobD,dobM,dobY,phone);
+  }
+
   public String getBalance()
   {
     return DatabaseAdapterImpl.getInstance().getBalance();
@@ -62,6 +67,16 @@ public class ModelImpl implements Model
   public String getAccountNo()
   {
     return DatabaseAdapterImpl.getInstance().getAccountNo();
+  }
+
+  public String getFullName(String username)
+  {
+    return DatabaseAdapterImpl.getInstance().getFullName(username);
+  }
+
+  public String[] getInfo(String username)
+  {
+    return DatabaseAdapterImpl.getInstance().getInfo(username);
   }
 
   public void addListener(String event, PropertyChangeListener listener)

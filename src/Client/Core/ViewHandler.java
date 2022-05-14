@@ -1,10 +1,13 @@
 package Client.Core;
 
+import Client.View.AccountList.AccountListViewController;
 import Client.View.Deposit.DepositViewController;
 import Client.View.Login.LoginViewController;
-import Client.View.Profile.OverviewViewController;
+import Client.View.Overview.OverviewViewController;
+import Client.View.Profile.ProfileViewController;
+import Client.View.Profile.ProfileViewModel;
+import Client.View.ProfileInfo.ProfileInfoViewController;
 import Client.View.Withdrawal.WithdrawalViewController;
-import Client.View.Withdrawal.WithdrawalViewModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -33,30 +36,30 @@ public class ViewHandler
     loader.setLocation(getClass().getResource("../View/Login/LoginView.fxml"));
     root = loader.load();
     LoginViewController controller = loader.getController();
-    controller.init(this,viewModelFactory);
+    controller.init(this,viewModelFactory,"");
     scene = new Scene(root);
     stage.setTitle("Log In");
     stage.setScene(scene);
     stage.show();
   }
 
-  public void openOverviewView() throws IOException
+  public void openOverviewView(String username,String accountNo) throws IOException
   {
     Scene scene = null;
     FXMLLoader loader = new FXMLLoader();
     Parent root = null;
 
-    loader.setLocation(getClass().getResource("../View/Profile/OverviewView.fxml"));
+    loader.setLocation(getClass().getResource("../View/Overview/OverviewView.fxml"));
     root = loader.load();
     OverviewViewController controller = loader.getController();
-    controller.init(this,viewModelFactory);
+    controller.initPlus(this,viewModelFactory,username,accountNo);
     scene = new Scene(root);
     stage.setTitle("Overview");
     stage.setScene(scene);
     stage.show();
   }
 
-  public void openDepositView() throws IOException
+  public void openDepositView(String username,String accountNo) throws IOException
   {
     Scene scene = null;
     FXMLLoader loader = new FXMLLoader();
@@ -65,14 +68,14 @@ public class ViewHandler
     loader.setLocation(getClass().getResource("../View/Deposit/DepositView.fxml"));
     root = loader.load();
     DepositViewController controller = loader.getController();
-    controller.init(this,viewModelFactory);
+    controller.initPlus(this,viewModelFactory,username,accountNo);
     scene = new Scene(root);
     stage.setTitle("Deposit");
     stage.setScene(scene);
     stage.show();
   }
 
-  public void openWithdrawalView() throws IOException
+  public void openWithdrawalView(String username,String accountNo) throws IOException
   {
     Scene scene = null;
     FXMLLoader loader = new FXMLLoader();
@@ -81,9 +84,57 @@ public class ViewHandler
     loader.setLocation(getClass().getResource("../View/Withdrawal/WithdrawalView.fxml"));
     root = loader.load();
     WithdrawalViewController controller = loader.getController();
-    controller.init(this,viewModelFactory);
+    controller.initPlus(this,viewModelFactory,username,accountNo);
     scene = new Scene(root);
     stage.setTitle("Withdrawal");
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void openProfileView(String username) throws IOException
+  {
+    Scene scene = null;
+    FXMLLoader loader = new FXMLLoader();
+    Parent root = null;
+
+    loader.setLocation(getClass().getResource("../View/Profile/ProfileView.fxml"));
+    root = loader.load();
+    ProfileViewController controller = loader.getController();
+    controller.init(this,viewModelFactory,username);
+    scene = new Scene(root);
+    stage.setTitle("Profile");
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void openAccountListView(String username) throws IOException
+  {
+    Scene scene = null;
+    FXMLLoader loader = new FXMLLoader();
+    Parent root = null;
+
+    loader.setLocation(getClass().getResource("../View/AccountList/AccountListView.fxml"));
+    root = loader.load();
+    AccountListViewController controller = loader.getController();
+    controller.init(this,viewModelFactory,username);
+    scene = new Scene(root);
+    stage.setTitle("Account list");
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void openProfileInfoView(String username) throws IOException
+  {
+    Scene scene = null;
+    FXMLLoader loader = new FXMLLoader();
+    Parent root = null;
+
+    loader.setLocation(getClass().getResource("../View/ProfileInfo/ProfileInfoView.fxml"));
+    root = loader.load();
+    ProfileInfoViewController controller = loader.getController();
+    controller.init(this,viewModelFactory,username);
+    scene = new Scene(root);
+    stage.setTitle("Profile info");
     stage.setScene(scene);
     stage.show();
   }

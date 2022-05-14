@@ -21,7 +21,7 @@ public class LoginViewController implements ViewController
   @FXML PasswordField passwordField;
   @FXML Button loginButton;
 
-  public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory)
+  public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory,String username)
   {
     this.viewHandler = viewHandler;
     viewModel = viewModelFactory.getLoginViewModel();
@@ -41,7 +41,7 @@ public class LoginViewController implements ViewController
 
   private void loginAccepted() throws IOException
   {
-    viewHandler.openOverviewView();
+    viewHandler.openProfileView(idTextField.getText());
   }
 
   private void passwordError() throws IOException

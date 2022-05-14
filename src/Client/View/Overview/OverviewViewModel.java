@@ -1,7 +1,6 @@
-package Client.View.Profile;
+package Client.View.Overview;
 
 import Client.Model.Model;
-import Client.Model.ModelImpl;
 
 public class OverviewViewModel
 {

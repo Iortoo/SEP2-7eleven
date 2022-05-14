@@ -95,6 +95,31 @@ public class ClientImpl implements Client, ClientCallBack
     return rtrn;
   }
 
+  public String getFullName(String username)
+  {
+    String rtrn="Bob Bobson";
+    try{
+      rtrn=server.getCustomerServer().getFullName(username);
+    }catch(RemoteException e){}
+    return rtrn;
+  }
+
+  public void requestInfoChange(String fmName,String lName,String username,String adress,String dobD,String dobM,String dobY,String phone)
+  {
+    try{
+      server.getCustomerServer().requestInfoChange(fmName,lName,username,adress,dobD,dobM,dobY,phone);
+    }catch(RemoteException e){}
+  }
+
+  public String[] getInfo(String username)
+  {
+    String[] rtrn ={"","","","","","","",""};
+    try{
+      rtrn =server.getCustomerServer().getInfo(username);
+    }catch(RemoteException e){}
+    return rtrn;
+  }
+
   public void addListener(String event, PropertyChangeListener listener)
   {
     support.addPropertyChangeListener(event,listener);
