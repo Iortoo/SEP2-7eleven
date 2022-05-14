@@ -3,10 +3,12 @@ package Client.Core;
 import Client.View.AccountList.AccountListViewController;
 import Client.View.Deposit.DepositViewController;
 import Client.View.Login.LoginViewController;
+import Client.View.NewAccount.NewAccountViewController;
 import Client.View.Overview.OverviewViewController;
 import Client.View.Profile.ProfileViewController;
 import Client.View.Profile.ProfileViewModel;
 import Client.View.ProfileInfo.ProfileInfoViewController;
+import Client.View.Register.RegisterViewController;
 import Client.View.Withdrawal.WithdrawalViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -135,6 +137,38 @@ public class ViewHandler
     controller.init(this,viewModelFactory,username);
     scene = new Scene(root);
     stage.setTitle("Profile info");
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void openNewAccountView(String username) throws IOException
+  {
+    Scene scene = null;
+    FXMLLoader loader = new FXMLLoader();
+    Parent root = null;
+
+    loader.setLocation(getClass().getResource("../View/NewAccount/NewAccountView.fxml"));
+    root = loader.load();
+    NewAccountViewController controller = loader.getController();
+    controller.init(this,viewModelFactory,username);
+    scene = new Scene(root);
+    stage.setTitle("Open new account");
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void openRegisterView() throws IOException
+  {
+    Scene scene = null;
+    FXMLLoader loader = new FXMLLoader();
+    Parent root = null;
+
+    loader.setLocation(getClass().getResource("../View/Register/RegisterView.fxml"));
+    root = loader.load();
+    RegisterViewController controller = loader.getController();
+    controller.init(this,viewModelFactory,"");
+    scene = new Scene(root);
+    stage.setTitle("Sign up");
     stage.setScene(scene);
     stage.show();
   }

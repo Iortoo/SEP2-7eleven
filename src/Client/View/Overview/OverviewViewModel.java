@@ -16,10 +16,10 @@ public class OverviewViewModel
      return model;
   }
 
-  public String getBalance()
+  public String getBalance(String username)
  {
-   return model.getBalance();
+   return model.getBalance(username);
  }
 
-  public String getAccountNo(){return model.getAccountNo();}
+  //public String getAccountNo(){return model.getAccountNo();}
 }

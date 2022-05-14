@@ -31,27 +31,19 @@ public class ModelImpl implements Model
     return result;
   }
 
-  public int getSignup(String username, String password)
+  public void signup(String username,String type, String fName, String lName, String address, String dob, String phone)
   {
-    // if the username is not in the database
-    // return true and call method
-    // sendAcceptCredentials()
-
-    // 1 if credentials are valid
-    // 0 if the username is in the database already
-
-    int result = DatabaseAdapterImpl.getInstance().signupQuery(username);
-    return result;
+    DatabaseAdapterImpl.getInstance().signup(username,type,fName,lName,address,dob,phone);
   }
 
-  public void deposit(String amount,String cardNo,String cvv,String expDate)
+  public void deposit(String username,String amount,String cardNo,String cvv,String expDate)
   {
-    DatabaseAdapterImpl.getInstance().deposit(amount,cardNo,cvv,expDate);
+    DatabaseAdapterImpl.getInstance().deposit(username,amount,cardNo,cvv,expDate);
   }
 
-  public void withdraw(String amount,String cardNo,String cvv,String expDate)
+  public void withdraw(String username,String amount,String cardNo,String cvv,String expDate)
   {
-    DatabaseAdapterImpl.getInstance().withdraw(amount,cardNo,cvv,expDate);
+    DatabaseAdapterImpl.getInstance().withdraw(username,amount,cardNo,cvv,expDate);
   }
 
   public void requestInfoChange(String fmName,String lName,String username,String adress,String dobD,String dobM,String dobY,String phone)
@@ -59,15 +51,20 @@ public class ModelImpl implements Model
     DatabaseAdapterImpl.getInstance().requestInfoChange(fmName,lName,username,adress,dobD,dobM,dobY,phone);
   }
 
-  public String getBalance()
+  public void newAccount(String username,String type, String amount)
   {
-    return DatabaseAdapterImpl.getInstance().getBalance();
+    DatabaseAdapterImpl.getInstance().newAccount(username,type,amount);
   }
 
-  public String getAccountNo()
+  public String getBalance(String username)
+  {
+    return DatabaseAdapterImpl.getInstance().getBalance(username);
+  }
+
+  /*public String getAccountNo()
   {
     return DatabaseAdapterImpl.getInstance().getAccountNo();
-  }
+  }*/
 
   public String getFullName(String username)
   {

@@ -56,34 +56,34 @@ public class DatabaseAdapterImpl implements  DatabaseAdapter
     return 1;
   }
 
-  public int signupQuery(String username)
+  public void signup(String username,String type, String fName, String lName, String address, String dob, String phone)
   {
-    if(username.equals("DummyUsername"))return 1;
-    return 0;
+    // add a request in the table to open up a new customer account
   }
-  public void deposit(String amount,String cardNo,String cvv,String expDate)
+
+  public void deposit(String username, String amount,String cardNo,String cvv,String expDate)
   {
     // add to the deposit table
     // modify the account balance accordingly
   }
 
-  public void withdraw(String amount,String cardNo,String cvv,String expDate)
+  public void withdraw(String username, String amount,String cardNo,String cvv,String expDate)
   {
     //add to the withdraw table
     //modify the account balance accordingly
   }
 
-  public String getBalance()
+  public String getBalance(String username)
   {
     // return the account balance
     return "0";
   }
 
-  public String getAccountNo()
+  /*public String getAccountNo()
   {
     //return account number
     return "1111";
-  }
+  }*/
 
   public String getFullName(String username)
   {
@@ -101,5 +101,10 @@ public class DatabaseAdapterImpl implements  DatabaseAdapter
     // return an arraylist like this:
     String[] rtrn ={"John","Johnson","123456","StreetFullOfBugs","01","02","1993","11223344"};
     return rtrn;
+  }
+
+  public void newAccount(String username,String type, String amount)
+  {
+    // add to user's accounts table
   }
 }

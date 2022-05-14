@@ -19,9 +19,9 @@ public class ModelImpl implements Model
     client.addListener("newBalance",this::newBalance);
   }
 
-  public void signup(String username, String password)
+  public void signup(String username,String type, String fName, String lName, String address, String dob, String phone)
   {
-    client.signup(username,password);
+    client.signup(username,type,fName,lName,address,dob,phone);
   }
 
   public void login(String username, String password)
@@ -39,26 +39,26 @@ public class ModelImpl implements Model
     support.firePropertyChange("validation",null,e.getNewValue());
   }
 
-  public void deposit(String amount,String cardNo,String cvv,String expDate)
+  public void deposit(String username,String amount,String cardNo,String cvv,String expDate)
   {
-    client.deposit(amount,cardNo,cvv,expDate);
+    client.deposit(username,amount,cardNo,cvv,expDate);
   }
 
-  public String getBalance()
+  public String getBalance(String username)
   {
-    return client.getBalance();
+    return client.getBalance(username);
   }
 
-  public String getAccountNo(){return client.getAccountNo();}
+  //public String getAccountNo(){return client.getAccountNo();}
 
   public String getFullName(String username)
   {
     return client.getFullName(username);
   }
 
-  public void withdraw(String amount,String cardNo,String cvv,String expDate)
+  public void withdraw(String username,String amount,String cardNo,String cvv,String expDate)
   {
-    client.withdraw(amount,cardNo,cvv,expDate);
+    client.withdraw(username,amount,cardNo,cvv,expDate);
   }
 
   private void newBalance(PropertyChangeEvent e)
@@ -74,6 +74,11 @@ public class ModelImpl implements Model
   public String[] getInfo(String username)
   {
     return client.getInfo(username);
+  }
+
+  public void newAccount(String username,String type, String amount)
+  {
+    client.newAccount(username,type,amount);
   }
 
   public void addListener(String event, PropertyChangeListener listener)

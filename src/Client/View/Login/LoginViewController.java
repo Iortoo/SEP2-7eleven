@@ -20,6 +20,7 @@ public class LoginViewController implements ViewController
   @FXML TextField idTextField;
   @FXML PasswordField passwordField;
   @FXML Button loginButton;
+  @FXML Button signupButton;
 
   public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory,String username)
   {
@@ -37,6 +38,11 @@ public class LoginViewController implements ViewController
     String username = idTextField.getText();
     String password = passwordField.getText();
     viewModel.login(username,password);
+  }
+
+  public void onSignupButton() throws IOException
+  {
+    viewHandler.openRegisterView();
   }
 
   private void loginAccepted() throws IOException

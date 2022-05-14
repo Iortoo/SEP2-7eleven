@@ -27,9 +27,9 @@ public class LoginServerImpl implements LoginServer
     return instance;
   }
 
-  public int signup(String username, String password)
+  public void signup(String username,String type, String fName, String lName, String address, String dob, String phone)throws RemoteException
   {
-    return model.getSignup(username, password);
+    model.signup(username,type,fName,lName,address,dob,phone);
   }
 
   public int login(String username, String password) throws RemoteException

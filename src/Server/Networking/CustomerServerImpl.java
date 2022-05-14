@@ -33,14 +33,14 @@ public class CustomerServerImpl implements CustomerServer
     this.clients=clients;
   }
 
-  public void deposit(String amount,String cardNo,String cvv, String expDate)
+  public void deposit(String username,String amount,String cardNo,String cvv, String expDate)
   {
-    model.deposit(amount,cardNo,cvv,expDate);
+    model.deposit(username,amount,cardNo,cvv,expDate);
   }
 
-  public void withdraw(String amount,String cardNo,String cvv, String expDate)
+  public void withdraw(String username,String amount,String cardNo,String cvv, String expDate)
   {
-    model.withdraw(amount,cardNo,cvv,expDate);
+    model.withdraw(username,amount,cardNo,cvv,expDate);
   }
 
   public void requestInfoChange(String fmName,String lName,String username,String adress,String dobD,String dobM,String dobY,String phone)throws RemoteException
@@ -48,15 +48,20 @@ public class CustomerServerImpl implements CustomerServer
     model.requestInfoChange(fmName,lName,username,adress,dobD,dobM,dobY,phone);
   }
 
-  public String getBalance() throws RemoteException
+  public void newAccount(String username,String type, String amount)throws RemoteException
   {
-    return model.getBalance();
+    model.newAccount(username,type,amount);
   }
 
-  public String getAccountNo() throws RemoteException
+  public String getBalance(String username) throws RemoteException
+  {
+    return model.getBalance(username);
+  }
+
+  /*public String getAccountNo() throws RemoteException
   {
     return model.getAccountNo();
-  }
+  }*/
 
   public String getFullName(String username) throws RemoteException
   {

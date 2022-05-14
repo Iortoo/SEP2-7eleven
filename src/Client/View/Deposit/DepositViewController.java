@@ -61,7 +61,7 @@ public class DepositViewController implements ViewController
     String cvv = cvvTextField.getText();
     String expDate = expMonthTextField + "/" + expYearTextField.getText();
 
-    viewModel.deposit(amount,cardNo,cvv,expDate);
+    viewModel.deposit(username,amount,cardNo,cvv,expDate);
     viewHandler.openOverviewView(username,accountNo);
   }
 }

@@ -46,6 +46,6 @@ public class AccountListViewController implements ViewController
 
   public void onNewAccountButton() throws IOException
   {
-    //viewHandler.openNewAccountView(username);
+    viewHandler.openNewAccountView(username);
   }
 }

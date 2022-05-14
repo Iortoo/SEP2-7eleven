@@ -30,14 +30,11 @@ public class ClientImpl implements Client, ClientCallBack
     catch(NotBoundException e){}
   }
 
-  public void signup(String username, String password)
+  public void signup(String username,String type, String fName, String lName, String address, String dob, String phone)
   {
-    int validation=-1;
     try{
-      validation=server.getLoginServer().signup(username, password);
-    }
-    catch(RemoteException e){}
-    support.firePropertyChange("validation",null,validation);
+      server.getLoginServer().signup(username,type,fName,lName,address,dob,phone);
+    }catch(RemoteException e){}
   }
 
   public void login(String username, String password)
@@ -59,41 +56,41 @@ public class ClientImpl implements Client, ClientCallBack
     catch (RemoteException e){};
   }
 
-  public void deposit(String amount,String cardNo,String cvv,String expDate)
+  public void deposit(String username,String amount,String cardNo,String cvv,String expDate)
   {
     try{
-      server.getCustomerServer().deposit(amount,cardNo,cvv,expDate);
+      server.getCustomerServer().deposit(username,amount,cardNo,cvv,expDate);
       support.firePropertyChange("newBalance",null,"newBalance");
     }
     catch(RemoteException e){}
 
   }
 
-  public void withdraw(String amount,String cardNo,String cvv,String expDate)
+  public void withdraw(String username,String amount,String cardNo,String cvv,String expDate)
   {
     try{
-      server.getCustomerServer().withdraw(amount,cardNo,cvv,expDate);
+      server.getCustomerServer().withdraw(username,amount,cardNo,cvv,expDate);
       support.firePropertyChange("newBalance",null,"newBalance");
     }catch(RemoteException e){};
   }
 
-  public String getBalance()
+  public String getBalance(String username)
   {
     String rtrn="1";
     try{
-      rtrn=server.getCustomerServer().getBalance();
+      rtrn=server.getCustomerServer().getBalance(username);
     }catch(RemoteException e){}
     return rtrn;
   }
 
-  public String getAccountNo()
+  /*public String getAccountNo()
   {
     String rtrn="123";
     try{
       rtrn=server.getCustomerServer().getAccountNo();
     }catch(RemoteException e){}
     return rtrn;
-  }
+  }*/
 
   public String getFullName(String username)
   {
@@ -118,6 +115,13 @@ public class ClientImpl implements Client, ClientCallBack
       rtrn =server.getCustomerServer().getInfo(username);
     }catch(RemoteException e){}
     return rtrn;
+  }
+
+  public void newAccount(String username,String type, String amount)
+  {
+    try{
+      server.getCustomerServer().newAccount(username,type,amount);
+    }catch(RemoteException e){}
   }
 
   public void addListener(String event, PropertyChangeListener listener)

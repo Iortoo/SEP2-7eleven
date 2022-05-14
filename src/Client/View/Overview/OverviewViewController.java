@@ -44,7 +44,7 @@ public class OverviewViewController implements ViewController
 
   public void onAccountsButton() throws IOException
   {
-    //viewHandler.openAccountListView(username);
+    viewHandler.openAccountListView(username);
   }
 
   public void onLoanButton() throws IOException
@@ -79,6 +79,6 @@ public class OverviewViewController implements ViewController
 
   private void update()
   {
-    balanceTextField.setText(viewModel.getBalance()+" DKK");
+    balanceTextField.setText(viewModel.getBalance(username)+" DKK");
   }
 }

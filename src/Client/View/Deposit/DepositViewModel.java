@@ -16,8 +16,8 @@ public class DepositViewModel
     return model;
   }
 
-  public void deposit(String amount,String cardNo,String cvv,String expDate)
+  public void deposit(String username,String amount,String cardNo,String cvv,String expDate)
   {
-    model.deposit(amount,cardNo,cvv,expDate);
+    model.deposit(username,amount,cardNo,cvv,expDate);
   }
 }

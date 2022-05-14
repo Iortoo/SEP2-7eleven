@@ -61,7 +61,7 @@ public class WithdrawalViewController implements ViewController
     String cvv = cvvTextField.getText();
     String expDate = expMonthTextField + "/" + expYearTextField.getText();
 
-    viewModel.withdraw(amount,cardNo,cvv,expDate);
+    viewModel.withdraw(username,amount,cardNo,cvv,expDate);
     viewHandler.openOverviewView(username,accountNo);
   }
 }

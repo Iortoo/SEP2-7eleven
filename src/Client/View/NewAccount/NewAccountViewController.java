@@ -35,7 +35,7 @@ public class NewAccountViewController implements ViewController
     String type ="";// accountType. FIGURE THIS OUT
     String deposit = amount.getText();
 
-    viewModel.newAccount(type,deposit);
+    viewModel.newAccount(username,type,deposit);
     viewHandler.openAccountListView(username);
   }
 

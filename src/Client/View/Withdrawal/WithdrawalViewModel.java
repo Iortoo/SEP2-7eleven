@@ -15,8 +15,8 @@ public class WithdrawalViewModel
     return model;
   }
 
-  public void withdraw(String amount,String cardNo,String cvv,String expDate)
+  public void withdraw(String username,String amount,String cardNo,String cvv,String expDate)
   {
-    model.withdraw(amount,cardNo,cvv,expDate);
+    model.withdraw(username,amount,cardNo,cvv,expDate);
   }
 }
