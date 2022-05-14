@@ -39,19 +39,9 @@ public class LoginViewController implements ViewController
     viewModel.login(username,password);
   }
 
-
-
   private void loginAccepted() throws IOException
   {
     viewHandler.openOverviewView();
-  }
-
-  private void usernameError() throws IOException
-  {
-    // viewHandler.openUsernameErrorView()
-     JOptionPane.showMessageDialog(null,"Invalid username.");
-     reset();
-
   }
 
   private void passwordError() throws IOException
@@ -74,23 +64,12 @@ public class LoginViewController implements ViewController
 
   public void validation(PropertyChangeEvent event)
   {
-    // 1 if credentials are valid
-    // 0 if password is incorrect
-    // -1 if username is incorrect
-    // 2 if username does not exist in the database
-    // 3 if username or password is null
-
     switch((int)event.getNewValue())
     {
       case 1:
       {
         try{loginAccepted();}
         catch(IOException e){}
-      }break;
-      case -1:
-      {
-        try{usernameError();}
-        catch(IOException e){};
       }break;
       case 0:
       {

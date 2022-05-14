@@ -2,7 +2,7 @@ package Server.Model;
 
 import java.sql.*;
 
-public class DatabaseAdapterImpl
+public class DatabaseAdapterImpl implements  DatabaseAdapter
 {
   private static DatabaseAdapterImpl instance;
 
@@ -17,8 +17,9 @@ public class DatabaseAdapterImpl
     return instance;
   }
 
-  public int loginQuerry(String username, String password)
+  public int loginQuery(String username, String password)
   {
+    if(username==null || password==null) return 3;
     try{
       Class.forName("org.postgresql.Driver");
 
@@ -27,7 +28,8 @@ public class DatabaseAdapterImpl
       String pw = "postgres";
       Connection connection = DriverManager.getConnection(url,user,pw);
 
-      String sql = "SELECT id, password FROM customer "
+      String sql = "set schema SEP27eleven"
+          + "SELECT id, password FROM customer "
           + "where id = ? and password = ?";
 
       PreparedStatement statement = connection.prepareStatement(sql);
@@ -52,5 +54,11 @@ public class DatabaseAdapterImpl
     }
 
     return 1;
+  }
+
+  public int signupQuery(String username)
+  {
+    if(username.equals("DummyUsername"))return 1;
+    return 0;
   }
 }

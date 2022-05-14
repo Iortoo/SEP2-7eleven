@@ -14,23 +14,12 @@ public class ModelImpl implements Model
 
   public int getLogin(String username, String password)
   {
-    // if the username and password match
-    // an existing on in  the database
-    // return true and call the method
-    // sendAcceptCredentials()
-
-    // 1 if credentials are valid
-    // 0 if password is incorrect
-    // -1 if username is incorrect
-    // 2 if username does not exist in the database
-    // 3 if username or password is null
-    // below I use a dummy username and password to test functionality
-    //    if (username == null && password == null) return 3;
-
-    int result = DatabaseAdapterImpl.getInstance().loginQuerry(username,password);
-    //      if (username.equals("DummyUsername") == false) return -1;
-    //      if (password.equals("dummypassword") == false) return 0;
-    //Checking if it exist in the database should be here
+    // 1 if credentials are valide
+    // 0 if password is wrong
+    // 2 if username is not in database
+    // 3 if the username and password params are null
+    // for now it returns 1
+    int result = DatabaseAdapterImpl.getInstance().loginQuery(username,password);
 
     return result;
   }
@@ -43,9 +32,9 @@ public class ModelImpl implements Model
 
     // 1 if credentials are valid
     // 0 if the username is in the database already
-    // below I use a dummy username to test functionality
-    if(username.equals("DummyUsername")) return 1;
-    return 0;
+
+    int result = DatabaseAdapterImpl.getInstance().signupQuery(username);
+    return result;
   }
 
   public void addListener(String event, PropertyChangeListener listener)
