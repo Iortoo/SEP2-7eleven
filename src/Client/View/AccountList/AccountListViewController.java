@@ -49,8 +49,10 @@ public class AccountListViewController implements ViewController
   public void onSelectButton() throws IOException
   {
     if(accountsListView.getSelectionModel().isEmpty()) JOptionPane.showMessageDialog(null,"Select an account");
-    String accountNo = (String)accountsListView.getSelectionModel().getSelectedItem();
-    viewHandler.openOverviewView(username,accountNo);
+    else{
+      String accountNo = (String)accountsListView.getSelectionModel().getSelectedItem();
+      viewHandler.openOverviewView(username,accountNo);
+    }
   }
 
   public void onNewAccountButton() throws IOException

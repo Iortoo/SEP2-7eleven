@@ -58,10 +58,10 @@ public class CustomerServerImpl implements CustomerServer
     return model.getBalance(username);
   }
 
-  /*public String getAccountNo() throws RemoteException
+  public int transfer(String username,String accountNo,String recAccNo,String recSwift,String amount)throws RemoteException
   {
-    return model.getAccountNo();
-  }*/
+    return model.transfer(username,accountNo,recAccNo,recSwift,amount);
+  }
 
   public String getFullName(String username) throws RemoteException
   {

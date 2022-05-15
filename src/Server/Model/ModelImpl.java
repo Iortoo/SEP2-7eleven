@@ -61,10 +61,10 @@ public class ModelImpl implements Model
     return DatabaseAdapterImpl.getInstance().getBalance(username);
   }
 
-  /*public String getAccountNo()
+  public int transfer(String username,String accountNo,String recAccNo,String recSwift,String amount)
   {
-    return DatabaseAdapterImpl.getInstance().getAccountNo();
-  }*/
+    return DatabaseAdapterImpl.getInstance().transfer(username,accountNo,recAccNo,recSwift,amount);
+  }
 
   public String getFullName(String username)
   {

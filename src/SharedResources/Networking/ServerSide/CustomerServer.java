@@ -16,6 +16,6 @@ public interface CustomerServer extends Remote, Serializable
   void newAccount(String username,String type, String amount)throws RemoteException;
   String[] getInfo(String username) throws RemoteException;
   String getBalance(String username) throws RemoteException;
-  //String getAccountNo() throws RemoteException;
   String getFullName(String username) throws RemoteException;
+  int transfer(String username,String accountNo,String recAccNo,String recSwift,String amount)throws RemoteException;
 }

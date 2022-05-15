@@ -34,7 +34,7 @@ public class LoanOverviewViewController implements ViewController
 
   public void onTransfersButton() throws IOException
   {
-    //viewHandler.openTransfersView(username,accountNo);
+    viewHandler.openTransfersView(username,accountNo);
   }
 
   public void onOverviewButton() throws IOException

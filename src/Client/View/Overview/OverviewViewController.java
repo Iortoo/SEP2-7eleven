@@ -59,7 +59,7 @@ public class OverviewViewController implements ViewController
 
   public void onTransfersButton() throws IOException
   {
-    //viewHandler.openTransfersView(username,accountNo);
+    viewHandler.openTransfersView(username,accountNo);
   }
 
   public void onDepositButton() throws IOException

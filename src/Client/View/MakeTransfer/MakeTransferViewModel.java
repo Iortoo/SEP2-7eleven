@@ -10,4 +10,9 @@ public class MakeTransferViewModel
   {
     this.model=model;
   }
+
+  public int transfer(String username,String accountNo,String recAccNo,String recSwift,String amount)
+  {
+    return model.transfer(username,accountNo,recAccNo,recSwift,amount);
+  }
 }

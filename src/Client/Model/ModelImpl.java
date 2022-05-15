@@ -81,6 +81,11 @@ public class ModelImpl implements Model
     client.newAccount(username,type,amount);
   }
 
+  public int transfer(String username,String accountNo,String recAccNo,String recSwift,String amount)
+  {
+    return client.transfer(username,accountNo,recAccNo,recSwift,amount);
+  }
+
   public void addListener(String event, PropertyChangeListener listener)
   {
     support.addPropertyChangeListener(event,listener);

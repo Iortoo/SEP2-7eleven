@@ -5,12 +5,13 @@ import Client.View.Deposit.DepositViewController;
 import Client.View.LoanOverview.LoanOverviewViewController;
 import Client.View.Loans.LoansViewController;
 import Client.View.Login.LoginViewController;
+import Client.View.MakeTransfer.MakeTransferViewController;
 import Client.View.NewAccount.NewAccountViewController;
 import Client.View.Overview.OverviewViewController;
 import Client.View.Profile.ProfileViewController;
-import Client.View.Profile.ProfileViewModel;
 import Client.View.ProfileInfo.ProfileInfoViewController;
 import Client.View.Register.RegisterViewController;
+import Client.View.Transfers.TransfersViewController;
 import Client.View.Withdrawal.WithdrawalViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -203,6 +204,38 @@ public class ViewHandler
     controller.initPlus(this,viewModelFactory,username,accountNo,loan);
     scene = new Scene(root);
     stage.setTitle("Loan Overview");
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void openTransfersView(String username,String accountNo) throws IOException
+  {
+    Scene scene = null;
+    FXMLLoader loader = new FXMLLoader();
+    Parent root = null;
+
+    loader.setLocation(getClass().getResource("../View/Transfers/TransfersView.fxml"));
+    root = loader.load();
+    TransfersViewController controller = loader.getController();
+    controller.initPlus(this,viewModelFactory,username,accountNo);
+    scene = new Scene(root);
+    stage.setTitle("Transfers");
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void openMakeTransferView(String username,String accountNo) throws IOException
+  {
+    Scene scene = null;
+    FXMLLoader loader = new FXMLLoader();
+    Parent root = null;
+
+    loader.setLocation(getClass().getResource("../View/MakeTransfer/MakeTransferView.fxml"));
+    root = loader.load();
+    MakeTransferViewController controller = loader.getController();
+    controller.initPlus(this,viewModelFactory,username,accountNo);
+    scene = new Scene(root);
+    stage.setTitle("Transfer funds");
     stage.setScene(scene);
     stage.show();
   }

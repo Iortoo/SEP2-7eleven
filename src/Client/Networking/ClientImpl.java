@@ -7,6 +7,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.NotBoundException;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -83,14 +84,14 @@ public class ClientImpl implements Client, ClientCallBack
     return rtrn;
   }
 
-  /*public String getAccountNo()
+  public int transfer(String username,String accountNo,String recAccNo,String recSwift,String amount)
   {
-    String rtrn="123";
+    int rtrn=0;
     try{
-      rtrn=server.getCustomerServer().getAccountNo();
-    }catch(RemoteException e){}
+      rtrn=server.getCustomerServer().transfer(username,accountNo,recAccNo,recSwift,amount);
+    }catch (RemoteException e){}
     return rtrn;
-  }*/
+  }
 
   public String getFullName(String username)
   {

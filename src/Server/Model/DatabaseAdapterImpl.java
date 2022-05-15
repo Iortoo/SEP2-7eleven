@@ -79,11 +79,16 @@ public class DatabaseAdapterImpl implements  DatabaseAdapter
     return "0";
   }
 
-  /*public String getAccountNo()
+  public int transfer(String username,String accountNo,String recAccNo,String recSwift,String amount)
   {
-    //return account number
-    return "1111";
-  }*/
+    // check to see what type of transfer is
+    // then add to corresponding table in database
+    // return 1 if regular transfer
+    // return 0 if external/big transfer
+
+    // if is a big/external transfer also add to the request table
+    return 1;
+  }
 
   public String getFullName(String username)
   {

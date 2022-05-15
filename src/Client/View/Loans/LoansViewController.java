@@ -60,7 +60,7 @@ public class LoansViewController implements ViewController
 
   public void onTransfersButton() throws IOException
   {
-    //viewHandler.openTransfersView(username,accountNo);
+    viewHandler.openTransfersView(username,accountNo);
   }
 
   public void onProfileButton() throws IOException

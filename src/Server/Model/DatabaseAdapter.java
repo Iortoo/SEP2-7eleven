@@ -9,7 +9,7 @@ public interface DatabaseAdapter
   void requestInfoChange(String fmName,String lName,String username,String adress,String dobD,String dobM,String dobY,String phone);
   void newAccount(String username,String type, String amount);
   String getBalance(String username);
-  //String getAccountNo();
   String getFullName(String username);
   String[] getInfo(String username);
+  int transfer(String username,String accountNo,String recAccNo,String recSwift,String amount);
 }
