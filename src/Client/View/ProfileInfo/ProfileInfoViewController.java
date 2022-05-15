@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class ProfileInfoViewController
@@ -42,9 +43,17 @@ public class ProfileInfoViewController
     phone.setText(array[7]);
   }
 
-  public void onRequestButton()
+  public void onRequestButton()throws IOException
   {
-    viewModel.requestInfoChange(fmName.getText(),lName.getText(),id.getText(),address.getText(),dobDay.getText(),dobMonth.getText(),dobYear.getText(),phone.getText());
+    if(fmName.getText()!=null && lName.getText()!=null && id.getText()!=null && address.getText()!=null && dobDay.getText()!=null && dobMonth.getText()!=null && dobYear.getText()!=null && phone.getText()!=null)
+    {
+      viewModel.requestInfoChange(fmName.getText(), lName.getText(), id.getText(),
+          address.getText(), dobDay.getText(), dobMonth.getText(), dobYear.getText(),
+          phone.getText());
+    JOptionPane.showMessageDialog(null,"Change request submitted");
+    viewHandler.openProfileView(username);
+    }
+    else JOptionPane.showMessageDialog(null,"Please fill in all fields");
   }
 
   public void onAccountsButton() throws IOException

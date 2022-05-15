@@ -43,7 +43,7 @@ public class MakeTransferViewController implements ViewController
     String recSwift = swiftTextField.getText();
     String amount = amountTextField.getText();
 
-    if(recAccountNo!=null&&recSwift!=null||amount!=null)
+    if(!accountNo.equals("") && !recSwift.equals("") && !amount.equals(""))
     {
       int result = viewModel.transfer(username,accountNo,recAccountNo,recSwift,amount);
       if(result==1)
@@ -54,6 +54,7 @@ public class MakeTransferViewController implements ViewController
       {
         JOptionPane.showMessageDialog(null,"International/Outstanding Transfer awaiting approval, est. 24hr");
       }
+      System.out.println(recAccountNo+" "+recSwift+" "+amount+"AAAA");
       viewHandler.openOverviewView(username,accountNo);
     }
     else JOptionPane.showMessageDialog(null,"Please fill in all fields");

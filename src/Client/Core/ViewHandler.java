@@ -7,6 +7,7 @@ import Client.View.Loans.LoansViewController;
 import Client.View.Login.LoginViewController;
 import Client.View.MakeTransfer.MakeTransferViewController;
 import Client.View.NewAccount.NewAccountViewController;
+import Client.View.NewLoan.NewLoanViewController;
 import Client.View.Overview.OverviewViewController;
 import Client.View.Profile.ProfileViewController;
 import Client.View.ProfileInfo.ProfileInfoViewController;
@@ -236,6 +237,22 @@ public class ViewHandler
     controller.initPlus(this,viewModelFactory,username,accountNo);
     scene = new Scene(root);
     stage.setTitle("Transfer funds");
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void openNewLoanView(String username,String accountNo) throws IOException
+  {
+    Scene scene = null;
+    FXMLLoader loader = new FXMLLoader();
+    Parent root = null;
+
+    loader.setLocation(getClass().getResource("../View/NewLoan/NewLoanView.fxml"));
+    root = loader.load();
+    NewLoanViewController controller = loader.getController();
+    controller.initPlus(this,viewModelFactory,username,accountNo);
+    scene = new Scene(root);
+    stage.setTitle("Take a loan");
     stage.setScene(scene);
     stage.show();
   }

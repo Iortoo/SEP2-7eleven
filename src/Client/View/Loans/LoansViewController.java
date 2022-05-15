@@ -50,7 +50,7 @@ public class LoansViewController implements ViewController
 
   public void onNewLoanButton() throws IOException
   {
-    //viewHandler.openNewLoanView(username,accountNo);
+    viewHandler.openNewLoanView(username,accountNo);
   }
 
   public void onOverviewButton() throws IOException

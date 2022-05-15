@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 
@@ -59,9 +60,13 @@ public class DepositViewController implements ViewController
     String amount = amountTextField.getText();
     String cardNo = cardNoTextField.getText();
     String cvv = cvvTextField.getText();
-    String expDate = expMonthTextField + "/" + expYearTextField.getText();
+    String expDate = expMonthTextField.getText() + "/" + expYearTextField.getText();
 
-    viewModel.deposit(username,amount,cardNo,cvv,expDate);
-    viewHandler.openOverviewView(username,accountNo);
+    if(amount!=null && cardNo!=null && cvv!=null && !expDate.equals("/"))
+    {
+      viewModel.deposit(username,amount,cardNo,cvv,expDate);
+      viewHandler.openOverviewView(username,accountNo);
+    }
+    else JOptionPane.showMessageDialog(null,"Please fill in all fields");
   }
 }
