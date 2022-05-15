@@ -72,5 +72,6 @@ public class MakeTransferViewController implements ViewController
   public void onProfileButton() throws IOException
   {
     viewHandler.openProfileView(username);
+    // delete this comment
   }
 }
