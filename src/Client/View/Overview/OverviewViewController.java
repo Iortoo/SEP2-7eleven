@@ -49,7 +49,7 @@ public class OverviewViewController implements ViewController
 
   public void onLoanButton() throws IOException
   {
-    //viewHandler.openLoanView(username,accountNo);
+    viewHandler.openLoansView(username,accountNo);
   }
 
   public void onProfileButton() throws IOException

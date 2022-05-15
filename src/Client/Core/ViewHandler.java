@@ -2,6 +2,8 @@ package Client.Core;
 
 import Client.View.AccountList.AccountListViewController;
 import Client.View.Deposit.DepositViewController;
+import Client.View.LoanOverview.LoanOverviewViewController;
+import Client.View.Loans.LoansViewController;
 import Client.View.Login.LoginViewController;
 import Client.View.NewAccount.NewAccountViewController;
 import Client.View.Overview.OverviewViewController;
@@ -169,6 +171,38 @@ public class ViewHandler
     controller.init(this,viewModelFactory,"");
     scene = new Scene(root);
     stage.setTitle("Sign up");
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void openLoansView(String username,String accountNo) throws IOException
+  {
+    Scene scene = null;
+    FXMLLoader loader = new FXMLLoader();
+    Parent root = null;
+
+    loader.setLocation(getClass().getResource("../View/Loans/LoansView.fxml"));
+    root = loader.load();
+    LoansViewController controller = loader.getController();
+    controller.initPlus(this,viewModelFactory,username,accountNo);
+    scene = new Scene(root);
+    stage.setTitle("Loans");
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void openLoanOverviewView(String username,String accountNo,String loan) throws IOException
+  {
+    Scene scene = null;
+    FXMLLoader loader = new FXMLLoader();
+    Parent root = null;
+
+    loader.setLocation(getClass().getResource("../View/LoanOverview/LoanOverviewView.fxml"));
+    root = loader.load();
+    LoanOverviewViewController controller = loader.getController();
+    controller.initPlus(this,viewModelFactory,username,accountNo,loan);
+    scene = new Scene(root);
+    stage.setTitle("Loan Overview");
     stage.setScene(scene);
     stage.show();
   }
