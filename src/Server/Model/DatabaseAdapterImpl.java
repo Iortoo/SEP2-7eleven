@@ -1,6 +1,7 @@
 package Server.Model;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DatabaseAdapterImpl implements  DatabaseAdapter
 {
@@ -18,7 +19,7 @@ public class DatabaseAdapterImpl implements  DatabaseAdapter
   }
 
   public int loginQuery(String username, String password)
-  {
+  {/*
     if(username==null || password==null) return 3;
     try{
       Class.forName("org.postgresql.Driver");
@@ -52,8 +53,21 @@ public class DatabaseAdapterImpl implements  DatabaseAdapter
     catch (ClassNotFoundException | SQLException e){
       System.out.println(e.getMessage());
     }
-
-    return 1;
+*/
+    boolean customer=false, employee=false;
+    if(username==null || password==null) return 3;
+    if(username.equals("Customer"))
+    {
+      customer=true;
+      if(password.equals("1234"))return 1;
+    }
+    if(username.equals("Employee"))
+    {
+      employee=true;
+      if(password.equals("5678"))return 4;
+    }
+    if(customer||employee)return 0;
+    return 2;
   }
 
   public void signup(String username,String type, String fName, String lName, String address, String dob, String phone)
@@ -111,5 +125,33 @@ public class DatabaseAdapterImpl implements  DatabaseAdapter
   public void newAccount(String username,String type, String amount)
   {
     // add to user's accounts table
+  }
+
+  public ArrayList<String> getRequests()
+  {
+    // return the whole requests table structured accordingly
+
+    ArrayList<String> rtrn = new ArrayList<>();
+
+    rtrn.add("DummySignUpRequest");
+    rtrn.add("DummyExternalTransferRequest");
+    rtrn.add("DummyBigTransferRequest");
+    rtrn.add("DummyBigExternalTransferRequest");
+    rtrn.add("DummyInfoChangeRequest");
+
+    return rtrn;
+  }
+
+  public void acceptRequest(String requestId)
+  {
+    // remove request from table
+    // based on what type of request it is
+    // make the adequate changes to the database
+    // ex. create an account if new account request
+  }
+
+  public void denyRequest(String requestId)
+  {
+    // remove request from table
   }
 }

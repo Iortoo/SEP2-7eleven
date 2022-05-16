@@ -1,5 +1,7 @@
 package Client.Core;
 
+import Client.View.Employee.EmployeeOverview.EmployeeOverviewViewModel;
+import Client.View.Employee.Request.RequestViewModel;
 import Client.View.LoanOverview.LoanOverviewViewModel;
 import Client.View.Loans.LoansViewModel;
 import Client.View.MakeTransfer.MakeTransferViewModel;
@@ -32,6 +34,8 @@ public class ViewModelFactory
   private MakeTransferViewModel makeTransferViewModel;
   private NewLoanViewModel newLoanViewModel;
   private TransfersViewModel transfersViewModel;
+  private EmployeeOverviewViewModel employeeOverviewViewModel;
+  private RequestViewModel requestViewModel;
 
   public ViewModelFactory(ModelFactory modelFactory)
   {
@@ -120,5 +124,17 @@ public class ViewModelFactory
   {
     if(transfersViewModel==null)transfersViewModel = new TransfersViewModel(modelFactory.getModel());
     return transfersViewModel;
+  }
+
+  public EmployeeOverviewViewModel getEmployeeOverviewViewModel()
+  {
+    if(employeeOverviewViewModel==null)employeeOverviewViewModel = new EmployeeOverviewViewModel(modelFactory.getModel());
+    return employeeOverviewViewModel;
+  }
+
+  public RequestViewModel getRequestViewModel()
+  {
+    if(registerViewModel==null)registerViewModel = new RegisterViewModel(modelFactory.getModel());
+    return requestViewModel;
   }
 }

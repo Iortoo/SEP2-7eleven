@@ -5,6 +5,7 @@ import Client.Networking.Client;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
 
 public class ModelImpl implements Model
 {
@@ -29,9 +30,14 @@ public class ModelImpl implements Model
     client.login(username,password);
   }
 
-  public void logout()
+  public void employeeLogOut()
   {
-    client.logout();
+    client.employeeLogOut();
+  }
+
+  public void customerLogOut()
+  {
+    client.customerLogOut();
   }
 
   private void validation(PropertyChangeEvent e)
@@ -48,8 +54,6 @@ public class ModelImpl implements Model
   {
     return client.getBalance(username);
   }
-
-  //public String getAccountNo(){return client.getAccountNo();}
 
   public String getFullName(String username)
   {
@@ -84,6 +88,21 @@ public class ModelImpl implements Model
   public int transfer(String username,String accountNo,String recAccNo,String recSwift,String amount)
   {
     return client.transfer(username,accountNo,recAccNo,recSwift,amount);
+  }
+
+  public ArrayList<String> getRequests()
+  {
+    return client.getRequests();
+  }
+
+  public void acceptRequest(String requestId)
+  {
+    client.acceptRequest(requestId);
+  }
+
+  public void denyRequest(String requestId)
+  {
+    client.denyRequest(requestId);
   }
 
   public void addListener(String event, PropertyChangeListener listener)

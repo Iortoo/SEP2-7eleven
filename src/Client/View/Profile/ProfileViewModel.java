@@ -15,4 +15,9 @@ public class ProfileViewModel
   {
     return model.getFullName(username);
   }
+
+  public void logOut()
+  {
+    model.customerLogOut();
+  }
 }

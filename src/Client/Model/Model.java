@@ -3,12 +3,14 @@ package Client.Model;
 import SharedResources.Subject;
 
 import java.beans.PropertyChangeEvent;
+import java.util.ArrayList;
 
 public interface Model extends Subject
 {
   void signup(String username,String type, String fName, String lName, String address, String dob, String phone);
   void login(String username, String password);
-  void logout();
+  void employeeLogOut();
+  void customerLogOut();
   void deposit(String username,String amount,String cardNo,String cvv,String expDate);
   String getBalance(String username);
   String getFullName(String username);
@@ -17,5 +19,7 @@ public interface Model extends Subject
   String[] getInfo(String username);
   void newAccount(String username,String type, String amount);
   int transfer(String username,String accountNo,String recAccNo,String recSwift,String amount);
-
+  ArrayList<String> getRequests();
+  void acceptRequest(String requestId);
+  void denyRequest(String requestId);
 }

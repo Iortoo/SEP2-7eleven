@@ -3,6 +3,7 @@ package Server.Model;
 import SharedResources.Subject;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public interface Model extends Subject, Serializable
 {
@@ -16,5 +17,7 @@ public interface Model extends Subject, Serializable
   String getFullName(String username);
   String[] getInfo(String username);
   int transfer(String username,String accountNo,String recAccNo,String recSwift,String amount);
-
+  ArrayList<String> getRequests();
+  void acceptRequest(String requestId);
+  void denyRequest(String requestId);
 }

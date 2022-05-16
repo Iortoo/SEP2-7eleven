@@ -41,6 +41,7 @@ public class ProfileViewController implements ViewController
 
   public void onLogoutButton() throws IOException
   {
-    //viewHandler.openLogoutView(username);
+    viewModel.logOut();
+    viewHandler.openLoginView();
   }
 }

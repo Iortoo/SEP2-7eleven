@@ -7,6 +7,7 @@ import SharedResources.Networking.ServerSide.EmployeeServer;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeServerImpl implements EmployeeServer
@@ -30,5 +31,25 @@ public class EmployeeServerImpl implements EmployeeServer
   public void setClients(List<ClientCallBack> clients) throws RemoteException
   {
     this.clients=clients;
+  }
+
+  public ArrayList<String> getRequests() throws RemoteException
+  {
+    return model.getRequests();
+  }
+
+  public void acceptRequest(String requestId) throws RemoteException
+  {
+    model.acceptRequest(requestId);
+  }
+
+  public void denyRequest(String requestId) throws RemoteException
+  {
+    model.denyRequest(requestId);
+  }
+
+  public void logout() throws RemoteException
+  {
+    ServerImpl.getInstance().sendToLoginServer(clients);
   }
 }

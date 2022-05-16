@@ -67,6 +67,11 @@ public class LoginViewController implements ViewController
     reset();
   }
 
+  private void employeeLogin() throws IOException
+  {
+    viewHandler.openEmployeeOverviewView(idTextField.getText());
+  }
+
 
   public void validation(PropertyChangeEvent event)
   {
@@ -93,6 +98,11 @@ public class LoginViewController implements ViewController
       {
         try{isNullError();}
         catch(IOException e){};
+      }break;
+      case 4:
+      {
+        try{employeeLogin();}
+        catch(IOException e){}
       }
     }
   }

@@ -1,5 +1,7 @@
 package Server.Model;
 
+import java.util.ArrayList;
+
 public interface DatabaseAdapter
 {
   int loginQuery(String username, String password);
@@ -12,4 +14,7 @@ public interface DatabaseAdapter
   String getFullName(String username);
   String[] getInfo(String username);
   int transfer(String username,String accountNo,String recAccNo,String recSwift,String amount);
+  ArrayList<String> getRequests();
+  void acceptRequest(String requestId);
+  void denyRequest(String requestId);
 }

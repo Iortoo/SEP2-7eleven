@@ -2,6 +2,8 @@ package Client.Core;
 
 import Client.View.AccountList.AccountListViewController;
 import Client.View.Deposit.DepositViewController;
+import Client.View.Employee.EmployeeOverview.EmployeeOverviewViewController;
+import Client.View.Employee.Request.RequestViewController;
 import Client.View.LoanOverview.LoanOverviewViewController;
 import Client.View.Loans.LoansViewController;
 import Client.View.Login.LoginViewController;
@@ -253,6 +255,38 @@ public class ViewHandler
     controller.initPlus(this,viewModelFactory,username,accountNo);
     scene = new Scene(root);
     stage.setTitle("Take a loan");
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void openEmployeeOverviewView(String username) throws IOException
+  {
+    Scene scene = null;
+    FXMLLoader loader = new FXMLLoader();
+    Parent root = null;
+
+    loader.setLocation(getClass().getResource("../View/Employee/EmployeeOverview/EmployeeOverviewView.fxml"));
+    root = loader.load();
+    EmployeeOverviewViewController controller = loader.getController();
+    controller.init(this,viewModelFactory,username);
+    scene = new Scene(root);
+    stage.setTitle("R.E.A.L Bank");
+    stage.setScene(scene);
+    stage.show();
+  }
+
+  public void openRequestView(String username,String requestId) throws IOException
+  {
+    Scene scene = null;
+    FXMLLoader loader = new FXMLLoader();
+    Parent root = null;
+
+    loader.setLocation(getClass().getResource("../View/Employee/Request/RequestView.fxml"));
+    root = loader.load();
+    RequestViewController controller = loader.getController();
+    controller.initPlus(this,viewModelFactory,username,requestId);
+    scene = new Scene(root);
+    stage.setTitle("Request");
     stage.setScene(scene);
     stage.show();
   }

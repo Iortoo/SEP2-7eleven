@@ -40,11 +40,6 @@ public class LoginServerImpl implements LoginServer
     return model.getLogin(username,password);
   }
 
-  public void logOut()
-  {
-    //log-out?
-  }
-
   public void setClients(List<ClientCallBack> clients) throws RemoteException
   {
     this.clients=clients;

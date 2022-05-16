@@ -12,6 +12,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
 public class ClientImpl implements Client, ClientCallBack
 {
@@ -49,10 +50,18 @@ public class ClientImpl implements Client, ClientCallBack
     support.firePropertyChange("validation",null,validation);
   }
 
-  public void logout()
+  public void employeeLogOut()
   {
     try{
-      server.getLoginServer().logOut();
+      server.getEmployeeServer().logout();
+    }
+    catch (RemoteException e){};
+  }
+
+  public void customerLogOut()
+  {
+    try{
+      server.getCustomerServer().logout();
     }
     catch (RemoteException e){};
   }
@@ -122,6 +131,29 @@ public class ClientImpl implements Client, ClientCallBack
   {
     try{
       server.getCustomerServer().newAccount(username,type,amount);
+    }catch(RemoteException e){}
+  }
+
+  public ArrayList<String> getRequests()
+  {
+    ArrayList<String> rtrn=new ArrayList<>();
+    try{
+      rtrn = server.getEmployeeServer().getRequests();
+    }catch(RemoteException e){}
+    return rtrn;
+  }
+
+  public void acceptRequest(String requestId)
+  {
+    try{
+      server.getEmployeeServer().acceptRequest(requestId);
+    }catch(RemoteException e){}
+  }
+
+  public void denyRequest(String requestId)
+  {
+    try{
+      server.getEmployeeServer().denyRequest(requestId);
     }catch(RemoteException e){}
   }
 

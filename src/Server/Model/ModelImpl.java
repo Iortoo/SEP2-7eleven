@@ -2,6 +2,7 @@ package Server.Model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
 
 public class ModelImpl implements Model
 {
@@ -21,13 +22,8 @@ public class ModelImpl implements Model
 
   public int getLogin(String username, String password)
   {
-    // 1 if credentials are valide
-    // 0 if password is wrong
-    // 2 if username is not in database
-    // 3 if the username and password params are null
-    // for now it returns 1
     int result = DatabaseAdapterImpl.getInstance().loginQuery(username,password);
-
+    System.out.println(result);
     return result;
   }
 
@@ -74,6 +70,21 @@ public class ModelImpl implements Model
   public String[] getInfo(String username)
   {
     return DatabaseAdapterImpl.getInstance().getInfo(username);
+  }
+
+  public ArrayList<String> getRequests()
+  {
+    return DatabaseAdapterImpl.getInstance().getRequests();
+  }
+
+  public void acceptRequest(String requestId)
+  {
+    DatabaseAdapterImpl.getInstance().acceptRequest(requestId);
+  }
+
+  public void denyRequest(String requestId)
+  {
+    DatabaseAdapterImpl.getInstance().denyRequest(requestId);
   }
 
   public void addListener(String event, PropertyChangeListener listener)

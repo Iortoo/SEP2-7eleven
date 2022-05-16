@@ -67,8 +67,14 @@ public class CustomerServerImpl implements CustomerServer
   {
     return model.getFullName(username);
   }
+
   public String[] getInfo(String username) throws RemoteException
   {
     return model.getInfo(username);
+  }
+
+  public void logout() throws RemoteException
+  {
+    ServerImpl.getInstance().sendToLoginServer(clients);
   }
 }
