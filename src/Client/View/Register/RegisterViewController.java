@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class RegisterViewController implements ViewController
 {
@@ -30,7 +31,14 @@ public class RegisterViewController implements ViewController
   public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory, String username)
   {
     this.viewHandler=viewHandler;
-    viewModel=viewModelFactory.getRegisterViewModel();
+    try
+    {
+      viewModel=viewModelFactory.getRegisterViewModel();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   public void onLoginButton() throws IOException

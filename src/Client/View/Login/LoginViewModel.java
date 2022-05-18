@@ -3,6 +3,7 @@ package Client.View.Login;
 import Client.Core.ViewHandler;
 import Client.Model.Model;
 import Client.Model.ModelImpl;
+import SharedResources.Utils.User;
 import javafx.beans.Observable;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleStringProperty;
@@ -12,6 +13,7 @@ import javafx.collections.FXCollections;
 
 import java.beans.PropertyChangeEvent;
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class LoginViewModel
 {
@@ -31,9 +33,12 @@ public class LoginViewModel
    // this.error=new SimpleStringProperty();
   }
 
-  public void login(String username, String password)
+  public void login(String username, String password) throws RemoteException
   {
-    model.login(username,password);
+    String b = model.login(username,password).getType();
+    User a = (User) model.login(username,password).getObject();
+
+    //System.out.println(b);
   }
 
   public Model getModel()

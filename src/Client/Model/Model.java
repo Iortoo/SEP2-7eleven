@@ -1,14 +1,18 @@
 package Client.Model;
 
 import SharedResources.Subject;
+import SharedResources.Utils.Request;
 
-import java.beans.PropertyChangeEvent;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public interface Model extends Subject
 {
+  Request login(String userId, String password);
+
+
   void signup(String username,String type, String fName, String lName, String address, String dob, String phone);
-  void login(String username, String password);
+  void Login(String username, String password) throws RemoteException;
   void employeeLogOut();
   void customerLogOut();
   void deposit(String username,String amount,String cardNo,String cvv,String expDate);

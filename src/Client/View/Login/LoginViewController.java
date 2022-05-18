@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javax.swing.*;
 import java.beans.PropertyChangeEvent;
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class LoginViewController implements ViewController
 {
@@ -22,7 +23,7 @@ public class LoginViewController implements ViewController
   @FXML Button loginButton;
   @FXML Button signupButton;
 
-  public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory,String username)
+  public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory,String username)throws RemoteException
   {
     this.viewHandler = viewHandler;
     viewModel = viewModelFactory.getLoginViewModel();
@@ -33,7 +34,7 @@ public class LoginViewController implements ViewController
     passwordField.textProperty().bindBidirectional(this.viewModel.passwordProperty());
   }
 
-  public void onLoginButton()
+  public void onLoginButton() throws RemoteException
   {
     String username = idTextField.getText();
     String password = passwordField.getText();

@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class RequestViewController implements ViewController
 {
@@ -31,7 +32,14 @@ public class RequestViewController implements ViewController
   {
     this.viewHandler=viewHandler;
     this.username=username;
-    viewModel=viewModelFactory.getRequestViewModel();
+    try
+    {
+      viewModel=viewModelFactory.getRequestViewModel();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   public void  initPlus(ViewHandler viewHandler,ViewModelFactory viewModelFactory,String username,String requestId)

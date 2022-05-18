@@ -10,6 +10,7 @@ import javafx.scene.control.ListView;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public class EmployeeOverviewViewController implements ViewController
@@ -26,7 +27,14 @@ public class EmployeeOverviewViewController implements ViewController
   {
     this.viewHandler=viewHandler;
     this.username=username;
-    viewModel=viewModelFactory.getEmployeeOverviewViewModel();
+    try
+    {
+      viewModel=viewModelFactory.getEmployeeOverviewViewModel();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
     getRequests();
     usernameLabel.setText(username);
   }

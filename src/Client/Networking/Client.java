@@ -1,13 +1,15 @@
 package Client.Networking;
 
 import SharedResources.Subject;
+import SharedResources.Utils.Request;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public interface Client extends Subject
 {
   void signup(String username,String type, String fName, String lName, String address, String dob, String phone);
-  void login(String username, String password);
+  int Login(String username, String password);
   void employeeLogOut();
   void customerLogOut();
   void deposit(String username,String amount,String cardNo,String cvv,String expDate);
@@ -21,4 +23,6 @@ public interface Client extends Subject
   ArrayList<String> getRequests();
   void acceptRequest(String requestId);
   void denyRequest(String requestId);
+
+  Request login(String userId, String password);
 }

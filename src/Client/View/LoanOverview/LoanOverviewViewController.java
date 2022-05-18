@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class LoanOverviewViewController implements ViewController
 {
@@ -22,7 +23,14 @@ public class LoanOverviewViewController implements ViewController
   public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory, String username)
   {
     this.viewHandler=viewHandler;
-    viewModel=viewModelFactory.getLoanOverviewViewModel();
+    try
+    {
+      viewModel=viewModelFactory.getLoanOverviewViewModel();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
     this.username=username;
   }
   public void initPlus(ViewHandler viewHandler, ViewModelFactory viewModelFactory, String username,String accountNo,String loan)

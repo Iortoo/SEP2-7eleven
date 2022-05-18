@@ -1,10 +1,12 @@
 package Client.Model;
 
 import Client.Networking.Client;
+import SharedResources.Utils.Request;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public class ModelImpl implements Model
@@ -20,12 +22,18 @@ public class ModelImpl implements Model
     client.addListener("newBalance",this::newBalance);
   }
 
+  @Override
+  public Request login(String userId, String password)
+  {
+    return client.login(userId, password);
+  }
+
   public void signup(String username,String type, String fName, String lName, String address, String dob, String phone)
   {
     client.signup(username,type,fName,lName,address,dob,phone);
   }
 
-  public void login(String username, String password)
+  public void Login(String username, String password)
   {
     client.login(username,password);
   }

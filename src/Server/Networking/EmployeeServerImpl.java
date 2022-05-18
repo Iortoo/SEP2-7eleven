@@ -50,6 +50,6 @@ public class EmployeeServerImpl implements EmployeeServer
 
   public void logout() throws RemoteException
   {
-    ServerImpl.getInstance().sendToLoginServer(clients);
+    /*ServerImpl.getInstance().sendToLoginServer(clients);*/
   }
 }

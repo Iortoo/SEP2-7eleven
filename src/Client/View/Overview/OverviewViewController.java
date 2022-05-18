@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 
 import java.beans.PropertyChangeEvent;
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class OverviewViewController implements ViewController
 {
@@ -30,7 +31,14 @@ public class OverviewViewController implements ViewController
   {
     this.username = username;
     this.viewHandler = viewHandler;
-    viewModel = viewModelFactory.getOverviewViewModel();
+    try
+    {
+      viewModel = viewModelFactory.getOverviewViewModel();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
     update();
     viewModel.getModel().addListener("newBalance",this::newBalance);
   }

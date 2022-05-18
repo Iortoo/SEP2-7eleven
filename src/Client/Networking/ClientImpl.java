@@ -2,6 +2,7 @@ package Client.Networking;
 
 import SharedResources.Networking.ClientSide.ClientCallBack;
 import SharedResources.Networking.ServerSide.Server;
+import SharedResources.Utils.Request;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -19,7 +20,7 @@ public class ClientImpl implements Client, ClientCallBack
   private Server server;
   private PropertyChangeSupport support;
 
-  public ClientImpl()
+  public ClientImpl() throws RemoteException
   {
     try{
       UnicastRemoteObject.exportObject(this,0);
@@ -39,15 +40,16 @@ public class ClientImpl implements Client, ClientCallBack
     }catch(RemoteException e){}
   }
 
-  public void login(String username, String password)
+  @Override public int Login(String username, String password)
   {
-    int validation=-1;
+    /*int validation=-1;
     try{
       validation = server.getLoginServer().login(username, password);
     }
     catch(RemoteException e){}
     System.out.println(validation);
-    support.firePropertyChange("validation",null,validation);
+    support.firePropertyChange("validation",null,validation);*/
+    return 0;
   }
 
   public void employeeLogOut()
@@ -165,5 +167,18 @@ public class ClientImpl implements Client, ClientCallBack
   public void removeListener(String event, PropertyChangeListener listener)
   {
     support.removePropertyChangeListener(event,listener);
+  }
+
+
+  public Request login(String userId, String password)
+  {
+    try
+    {
+      return server.getLoginServer().login(userId, password);
+    }
+    catch (RemoteException e)
+    {
+      return new Request(e.getMessage(),null);
+    }
   }
 }

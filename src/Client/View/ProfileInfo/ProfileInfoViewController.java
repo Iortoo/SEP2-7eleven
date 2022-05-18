@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class ProfileInfoViewController
 {
@@ -31,7 +32,14 @@ public class ProfileInfoViewController
   {
     this.username=username;
     this.viewHandler=viewHandler;
-    viewModel=viewModelFactory.getProfileInfoViewModel();
+    try
+    {
+      viewModel=viewModelFactory.getProfileInfoViewModel();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
     String[] array = viewModel.getInfo(username);
     fmName.setText(array[0]);
     lName.setText(array[1]);

@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class TransfersViewController implements ViewController
 {
@@ -25,7 +26,14 @@ public class TransfersViewController implements ViewController
   {
     this.username=username;
     this.viewHandler=viewHandler;
-    viewModel=viewModelFactory.getTransfersViewModel();
+    try
+    {
+      viewModel=viewModelFactory.getTransfersViewModel();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
     historyScrollPane.getContent().setAccessibleText("AAAAAAAAA\nAAAAAAAAAAA");
   }
 

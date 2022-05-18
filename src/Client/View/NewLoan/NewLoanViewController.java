@@ -9,6 +9,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class NewLoanViewController implements ViewController
 {
@@ -29,7 +30,14 @@ public class NewLoanViewController implements ViewController
   {
     this.viewHandler=viewHandler;
     this.username=username;
-    viewModel=viewModelFactory.getNewLoanViewModel();
+    try
+    {
+      viewModel=viewModelFactory.getNewLoanViewModel();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
   }
   public void initPlus(ViewHandler viewHandler,ViewModelFactory viewModelFactory,String username,String accountNo)
   {

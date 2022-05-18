@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class DepositViewController implements ViewController
 {
@@ -31,7 +32,14 @@ public class DepositViewController implements ViewController
   {
     this.username=username;
     this.viewHandler = viewHandler;
-    viewModel = viewModelFactory.getDepositViewModel();
+    try
+    {
+      viewModel = viewModelFactory.getDepositViewModel();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   public void initPlus(ViewHandler viewHandler, ViewModelFactory viewModelFactory,String username,String accountNo)

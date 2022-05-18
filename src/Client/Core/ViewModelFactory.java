@@ -17,6 +17,8 @@ import Client.View.Register.RegisterViewModel;
 import Client.View.Transfers.TransfersViewModel;
 import Client.View.Withdrawal.WithdrawalViewModel;
 
+import java.rmi.RemoteException;
+
 public class ViewModelFactory
 {
   private ModelFactory modelFactory;
@@ -42,97 +44,98 @@ public class ViewModelFactory
     this.modelFactory=modelFactory;
   }
 
-  public LoginViewModel getLoginViewModel()
+  public LoginViewModel getLoginViewModel()throws RemoteException
   {
     if(loginViewModel==null) loginViewModel=new LoginViewModel(modelFactory.getModel());
     return loginViewModel;
   }
 
-  public OverviewViewModel getOverviewViewModel()
+  public OverviewViewModel getOverviewViewModel() throws RemoteException
   {
     if(overviewViewModel==null) overviewViewModel = new OverviewViewModel(modelFactory.getModel());
     return overviewViewModel;
   }
 
-  public DepositViewModel getDepositViewModel()
+  public DepositViewModel getDepositViewModel() throws RemoteException
   {
     if(depositViewModel==null) depositViewModel = new DepositViewModel(modelFactory.getModel());
     return depositViewModel;
   }
 
-  public WithdrawalViewModel getWithdrawalViewModel()
+  public WithdrawalViewModel getWithdrawalViewModel() throws RemoteException
   {
     if(withdrawalViewModel==null) withdrawalViewModel = new WithdrawalViewModel(modelFactory.getModel());
     return withdrawalViewModel;
   }
 
-  public ProfileViewModel getProfileViewModel()
+  public ProfileViewModel getProfileViewModel() throws RemoteException
   {
     if(profileViewModel==null) profileViewModel = new ProfileViewModel(modelFactory.getModel());
     return profileViewModel;
   }
 
-  public ProfileInfoViewModel getProfileInfoViewModel()
+  public ProfileInfoViewModel getProfileInfoViewModel() throws RemoteException
   {
     if(profileInfoViewModel==null)profileInfoViewModel=new ProfileInfoViewModel(modelFactory.getModel());
     return profileInfoViewModel;
   }
 
-  public AccountListViewModel getAccountListViewModel()
+  public AccountListViewModel getAccountListViewModel() throws RemoteException
   {
     if(accountListViewModel==null)accountListViewModel = new AccountListViewModel(modelFactory.getModel());
     return accountListViewModel;
   }
 
-  public NewAccountViewModel getNewAccountViewModel()
+  public NewAccountViewModel getNewAccountViewModel() throws RemoteException
   {
     if(newAccountViewModel==null)newAccountViewModel = new NewAccountViewModel(modelFactory.getModel());
     return newAccountViewModel;
   }
 
-  public RegisterViewModel getRegisterViewModel()
+  public RegisterViewModel getRegisterViewModel() throws RemoteException
   {
     if(registerViewModel==null)registerViewModel = new RegisterViewModel(modelFactory.getModel());
     return registerViewModel;
   }
 
-  public LoanOverviewViewModel getLoanOverviewViewModel()
+  public LoanOverviewViewModel getLoanOverviewViewModel() throws RemoteException
   {
     if(loanOverviewViewModel==null) loanOverviewViewModel = new LoanOverviewViewModel(modelFactory.getModel());
     return loanOverviewViewModel;
   }
 
-  public LoansViewModel getLoansViewModel()
+  public LoansViewModel getLoansViewModel() throws RemoteException
   {
     if(loansViewModel==null) loansViewModel = new LoansViewModel(modelFactory.getModel());
     return loansViewModel;
   }
 
-  public MakeTransferViewModel getMakeTransferViewModel()
+  public MakeTransferViewModel getMakeTransferViewModel() throws RemoteException
   {
     if(makeTransferViewModel==null) makeTransferViewModel = new MakeTransferViewModel(modelFactory.getModel());
     return makeTransferViewModel;
   }
 
-  public NewLoanViewModel getNewLoanViewModel()
+  public NewLoanViewModel getNewLoanViewModel() throws RemoteException
   {
     if(newLoanViewModel==null)newLoanViewModel = new NewLoanViewModel(modelFactory.getModel());
     return newLoanViewModel;
   }
 
-  public TransfersViewModel getTransfersViewModel()
+  public TransfersViewModel getTransfersViewModel() throws RemoteException
   {
     if(transfersViewModel==null)transfersViewModel = new TransfersViewModel(modelFactory.getModel());
     return transfersViewModel;
   }
 
   public EmployeeOverviewViewModel getEmployeeOverviewViewModel()
+      throws RemoteException
   {
     if(employeeOverviewViewModel==null)employeeOverviewViewModel = new EmployeeOverviewViewModel(modelFactory.getModel());
     return employeeOverviewViewModel;
   }
 
-  public RequestViewModel getRequestViewModel()
+  public RequestViewModel getRequestViewModel() throws RemoteException
   {
     if(registerViewModel==null)registerViewModel = new RegisterViewModel(modelFactory.getModel());
     return requestViewModel;

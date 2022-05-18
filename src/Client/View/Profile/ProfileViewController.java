@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class ProfileViewController implements ViewController
 {
@@ -24,7 +25,14 @@ public class ProfileViewController implements ViewController
   {
     this.username=username;
     this.viewHandler=viewHandler;
-    viewModel = viewModelFactory.getProfileViewModel();
+    try
+    {
+      viewModel = viewModelFactory.getProfileViewModel();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
     usernameLabel.setText(username);
     fullNameLabel.setText(viewModel.getFullName(username));
   }

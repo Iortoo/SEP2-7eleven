@@ -23,20 +23,22 @@ public class ServerImpl implements Server
   private EmployeeServer employeeServer;
   private List<ClientCallBack> clients;
 
-  private ServerImpl() throws RemoteException
+  public ServerImpl(LoginServer loginServer) throws RemoteException
   {
-    this.loginServer=LoginServerImpl.getInstance();
+    this.loginServer = loginServer;
     this.customerServer=CustomerServerImpl.getInstance();
     this.employeeServer=EmployeeServerImpl.getInstance();
     UnicastRemoteObject.exportObject(this,0);
     clients = new ArrayList<>();
   }
 
+/*
   public static ServerImpl getInstance() throws RemoteException
   {
     if(instance==null)instance=new ServerImpl();
     return instance;
   }
+*/
 
   public LoginServer getLoginServer() throws RemoteException
   {

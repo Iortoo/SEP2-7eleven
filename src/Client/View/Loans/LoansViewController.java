@@ -9,6 +9,7 @@ import javafx.scene.control.ListView;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class LoansViewController implements ViewController
 {
@@ -26,7 +27,14 @@ public class LoansViewController implements ViewController
   public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory, String username)
   {
     this.viewHandler=viewHandler;
-    viewModel = viewModelFactory.getLoansViewModel();
+    try
+    {
+      viewModel = viewModelFactory.getLoansViewModel();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
     this.username=username;
     addDummyLoan();
     getLoans();

@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOError;
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class NewAccountViewController implements ViewController
 {
@@ -27,7 +28,14 @@ public class NewAccountViewController implements ViewController
   {
     this.username=username;
     this.viewHandler=viewHandler;
-    viewModel=viewModelFactory.getNewAccountViewModel();
+    try
+    {
+      viewModel=viewModelFactory.getNewAccountViewModel();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   public void onRegisterButton() throws IOException

@@ -9,6 +9,7 @@ import javafx.scene.control.ListView;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class AccountListViewController implements ViewController
 {
@@ -24,7 +25,14 @@ public class AccountListViewController implements ViewController
   {
     this.username=username;
     this.viewHandler=viewHandler;
-    viewModel=viewModelFactory.getAccountListViewModel();
+    try
+    {
+      viewModel=viewModelFactory.getAccountListViewModel();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
     addDummmyAccount();
     getAccounts();
   }
